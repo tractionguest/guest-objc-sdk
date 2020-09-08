@@ -1,5 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "TGObject.h"
+#import "TGBatchJob.h"
+#import "TGErrorsList.h"
+#import "TGIdentifierList.h"
+#import "TGApi.h"
 
 /**
 * Traction Guest API
@@ -14,34 +17,39 @@
 */
 
 
-#import "TGUser.h"
-@protocol TGUser;
-@class TGUser;
+
+@interface TGBatchesApi: NSObject <TGApi>
+
+extern NSString* kTGBatchesApiErrorDomain;
+extern NSInteger kTGBatchesApiMissingParamErrorCode;
+
+-(instancetype) initWithApiClient:(TGApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
+
+/// Delete Multiple Invites
+/// Queues up a \"delete\" background task for one or more `Invite` entities.
+///
+/// @param identifierList  (optional)
+/// 
+///  code:202 message:"Accepted",
+///  code:4XX message:"Unauthorized"
+///
+/// @return TGBatchJob*
+-(NSURLSessionTask*) batchDeleteInvitesWithIdentifierList: (TGIdentifierList*) identifierList
+    completionHandler: (void (^)(TGBatchJob* output, NSError* error)) handler;
 
 
+/// Get a BatchJob
+/// Retrieve a given `BatchJob` entity.
+///
+/// @param batchId 
+/// 
+///  code:200 message:"OK",
+///  code:4XX message:"Not Found"
+///
+/// @return TGBatchJob*
+-(NSURLSessionTask*) getBatchWithBatchId: (NSString*) batchId
+    completionHandler: (void (^)(TGBatchJob* output, NSError* error)) handler;
 
-@protocol TGBatchJob
-@end
 
-@interface TGBatchJob : TGObject
-
-
-@property(nonatomic) NSString* bid;
-
-@property(nonatomic) NSString* createdAt;
-
-@property(nonatomic) NSString* status;
-
-@property(nonatomic) NSNumber* totalRecords;
-
-@property(nonatomic) NSString* workerName;
-
-@property(nonatomic) TGUser* user;
-
-@property(nonatomic) NSNumber* pending;
-
-@property(nonatomic) NSNumber* completed;
-
-@property(nonatomic) NSNumber* failed;
 
 @end

@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
+#import "TGBatchJob.h"
 #import "TGErrorsList.h"
+#import "TGIdentifierList.h"
 #import "TGInviteCreateParams.h"
 #import "TGInviteDetail.h"
 #import "TGInviteUpdateParams.h"
@@ -26,6 +28,19 @@ extern NSString* kTGInvitesApiErrorDomain;
 extern NSInteger kTGInvitesApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(TGApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
+
+/// Delete Multiple Invites
+/// Queues up a \"delete\" background task for one or more `Invite` entities.
+///
+/// @param identifierList  (optional)
+/// 
+///  code:202 message:"Accepted",
+///  code:4XX message:"Unauthorized"
+///
+/// @return TGBatchJob*
+-(NSURLSessionTask*) batchDeleteInvitesWithIdentifierList: (TGIdentifierList*) identifierList
+    completionHandler: (void (^)(TGBatchJob* output, NSError* error)) handler;
+
 
 /// Create an Invite
 /// Creates a new `Invite` for a specific `Location`.

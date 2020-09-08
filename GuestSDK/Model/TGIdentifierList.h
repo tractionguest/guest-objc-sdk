@@ -14,34 +14,15 @@
 */
 
 
-#import "TGUser.h"
-@protocol TGUser;
-@class TGUser;
 
 
 
-@protocol TGBatchJob
+@protocol TGIdentifierList
 @end
 
-@interface TGBatchJob : TGObject
+@interface TGIdentifierList : TGObject
 
 
-@property(nonatomic) NSString* bid;
-
-@property(nonatomic) NSString* createdAt;
-
-@property(nonatomic) NSString* status;
-
-@property(nonatomic) NSNumber* totalRecords;
-
-@property(nonatomic) NSString* workerName;
-
-@property(nonatomic) TGUser* user;
-
-@property(nonatomic) NSNumber* pending;
-
-@property(nonatomic) NSNumber* completed;
-
-@property(nonatomic) NSNumber* failed;
+@property(nonatomic) NSArray<NSString*>* ids;
 
 @end
