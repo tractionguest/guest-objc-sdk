@@ -45,4 +45,6 @@
  */
 @property(nonatomic) NSNumber* registrationPortalEnabled;
 
+@property(nonatomic) NSString* accountUuid;
+
 @end
