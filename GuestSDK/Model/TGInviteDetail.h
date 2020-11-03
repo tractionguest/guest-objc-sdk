@@ -83,6 +83,8 @@
 
 @property(nonatomic) NSString* company;
 
+@property(nonatomic) NSNumber* onPremise;
+
 @property(nonatomic) TGGroupVisit* groupVisit;
 
 @end
