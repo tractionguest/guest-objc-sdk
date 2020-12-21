@@ -22,17 +22,13 @@
 
 @interface TGSimpleSignature : TGObject
 
-/*  [optional]
- */
+
 @property(nonatomic) NSString* status;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* templateName;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* _id;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* title;
 
 @end

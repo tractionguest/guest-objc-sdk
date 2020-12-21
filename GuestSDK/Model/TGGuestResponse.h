@@ -14,9 +14,6 @@
 */
 
 
-#import "TGCustomField.h"
-@protocol TGCustomField;
-@class TGCustomField;
 
 
 
@@ -30,7 +27,7 @@
 @property(nonatomic) NSString* _id;
 /* Flex fields [optional]
  */
-@property(nonatomic) NSArray<TGCustomField>* customFields;
+@property(nonatomic) NSArray<NSObject*>* customFields;
 
 @property(nonatomic) NSString* pageType;
 

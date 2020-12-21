@@ -14,12 +14,6 @@
 */
 
 
-#import "TGExternalWatchlistResult.h"
-#import "TGInternalWatchlistResult.h"
-@protocol TGExternalWatchlistResult;
-@class TGExternalWatchlistResult;
-@protocol TGInternalWatchlistResult;
-@class TGInternalWatchlistResult;
 
 
 
@@ -31,9 +25,9 @@
 
 @property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) NSArray<TGInternalWatchlistResult>* internal;
+@property(nonatomic) NSArray<NSObject*>* internal;
 
-@property(nonatomic) NSArray<TGExternalWatchlistResult>* external;
+@property(nonatomic) NSArray<NSObject*>* external;
 /* Deprecated [optional]
  */
 @property(nonatomic) NSArray<NSString*>* internalColours;

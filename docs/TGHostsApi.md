@@ -25,7 +25,7 @@ Creates a Host
 TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
-TGHostCreateParams* hostCreateParams = {"email":"some text","first_name":"some text","last_name":"some text","profile_pic_url":"some text","department":"some text","mobile_number":"some text"}; // 
+TGHostCreateParams* hostCreateParams = [[TGHostCreateParams alloc] init]; // 
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGHostsApi*apiInstance = [[TGHostsApi alloc] init];

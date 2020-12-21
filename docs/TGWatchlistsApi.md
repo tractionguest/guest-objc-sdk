@@ -27,7 +27,7 @@ Create a new `Watchlist` record. Please note, every action taken against this en
 TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
-TGWatchlistCreateParams* watchlistCreateParams = {"colour":"GREEN","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"]}; // The new `Watchlist` to create
+TGWatchlistCreateParams* watchlistCreateParams = [[TGWatchlistCreateParams alloc] init]; // 
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
@@ -49,7 +49,7 @@ TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **watchlistCreateParams** | [**TGWatchlistCreateParams***](TGWatchlistCreateParams.md)| The new &#x60;Watchlist&#x60; to create | 
+ **watchlistCreateParams** | [**TGWatchlistCreateParams***](TGWatchlistCreateParams.md)|  | 
  **idempotencyKey** | **NSString***| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] 
 
 ### Return type
@@ -124,7 +124,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) getWatchlistWithWatchlistId: (NSString*) watchlistId
     include: (NSString*) include
-        completionHandler: (void (^)(TGWatchlist* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
 Get a Watchlist
@@ -144,7 +144,7 @@ TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
 // Get a Watchlist
 [apiInstance getWatchlistWithWatchlistId:watchlistId
               include:include
-          completionHandler: ^(TGWatchlist* output, NSError* error) {
+          completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TGWatchlist***](TGWatchlist.md)
+**NSObject***
 
 ### Authorization
 
@@ -247,9 +247,9 @@ Name | Type | Description  | Notes
 # **updateWatchlist**
 ```objc
 -(NSURLSessionTask*) updateWatchlistWithWatchlistId: (NSString*) watchlistId
-    watchlistCreateParams: (TGWatchlistCreateParams*) watchlistCreateParams
+    body: (NSObject*) body
     idempotencyKey: (NSString*) idempotencyKey
-        completionHandler: (void (^)(TGWatchlist* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
 Update a Watchlist
@@ -262,16 +262,16 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* watchlistId = @"watchlistId_example"; // 
-TGWatchlistCreateParams* watchlistCreateParams = {"colour":"YELLOW","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"]}; // The watchlist record attributes to update
+NSObject* body = {"colour":"YELLOW","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"]}; // The watchlist record attributes to update
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
 
 // Update a Watchlist
 [apiInstance updateWatchlistWithWatchlistId:watchlistId
-              watchlistCreateParams:watchlistCreateParams
+              body:body
               idempotencyKey:idempotencyKey
-          completionHandler: ^(TGWatchlist* output, NSError* error) {
+          completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -286,12 +286,12 @@ TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **watchlistId** | **NSString***|  | 
- **watchlistCreateParams** | [**TGWatchlistCreateParams***](TGWatchlistCreateParams.md)| The watchlist record attributes to update | 
+ **body** | **NSObject***| The watchlist record attributes to update | 
  **idempotencyKey** | **NSString***| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] 
 
 ### Return type
 
-[**TGWatchlist***](TGWatchlist.md)
+**NSObject***
 
 ### Authorization
 

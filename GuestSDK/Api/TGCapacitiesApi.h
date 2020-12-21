@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "TGCapacity.h"
 #import "TGCapacityForecast.h"
-#import "TGErrorsList.h"
 #import "TGApi.h"
 
 /**

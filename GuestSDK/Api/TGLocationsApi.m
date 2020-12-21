@@ -1,7 +1,6 @@
 #import "TGLocationsApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
-#import "TGErrorsList.h"
 #import "TGLocation.h"
 #import "TGPaginatedLocationsList.h"
 

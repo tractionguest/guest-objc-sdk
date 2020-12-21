@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **NSNumber*** |  | [optional] 
-**location** | [**TGLocation***](TGLocation.md) |  | [optional] 
-**hosts** | [**NSArray&lt;TGHost&gt;***](TGHost.md) |  | [optional] 
+**location** | **NSObject*** |  | [optional] 
+**hosts** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
 **name** | **NSString*** |  | [optional] 
 **startTime** | **NSString*** |  | [optional] 
 **endTime** | **NSString*** |  | [optional] 

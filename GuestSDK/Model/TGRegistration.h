@@ -14,15 +14,6 @@
 */
 
 
-#import "TGInvite.h"
-#import "TGSignin.h"
-#import "TGVisitor.h"
-@protocol TGInvite;
-@class TGInvite;
-@protocol TGSignin;
-@class TGSignin;
-@protocol TGVisitor;
-@class TGVisitor;
 
 
 
@@ -35,9 +26,9 @@
  */
 @property(nonatomic) NSString* _id;
 
-@property(nonatomic) TGVisitor* visitor;
+@property(nonatomic) NSObject* visitor;
 
-@property(nonatomic) TGInvite* invite;
+@property(nonatomic) NSObject* invite;
 /* URL of the uploaded photo [optional]
  */
 @property(nonatomic) NSString* photoUrl;
@@ -54,6 +45,6 @@
  */
 @property(nonatomic) NSDate* createdAt;
 
-@property(nonatomic) TGSignin* signin;
+@property(nonatomic) NSObject* signin;
 
 @end

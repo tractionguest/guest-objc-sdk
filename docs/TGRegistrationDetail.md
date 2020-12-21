@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **email** | **NSString*** | E-mail | [optional] 
 **name** | **NSString*** | Guest&#39;s name | [optional] 
 **createdAt** | **NSDate*** | Datetime when registration was created | 
-**signin** | [**TGSignin***](TGSignin.md) |  | [optional] 
+**signin** | **NSObject*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

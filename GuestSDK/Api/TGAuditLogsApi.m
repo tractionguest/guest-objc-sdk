@@ -2,7 +2,6 @@
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
 #import "TGAuditLog.h"
-#import "TGErrorsList.h"
 #import "TGPaginatedAuditLogsList.h"
 
 

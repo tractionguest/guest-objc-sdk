@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **NSString*** | UUID | [optional] 
-**customFields** | [**NSArray&lt;TGCustomField&gt;***](TGCustomField.md) | Flex fields | [optional] 
+**customFields** | **NSArray&lt;NSObject*&gt;*** | Flex fields | [optional] 
 **pageType** | **NSString*** |  | [optional] 
 **sequence** | **NSNumber*** |  | [optional] 
 **title** | **NSString*** | Page title | [optional] 

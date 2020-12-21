@@ -14,15 +14,9 @@
 */
 
 
-#import "TGHost.h"
-#import "TGImage.h"
-#import "TGLocation.h"
-@protocol TGHost;
-@class TGHost;
-@protocol TGImage;
-@class TGImage;
-@protocol TGLocation;
-@class TGLocation;
+#import "TGImageV1.h"
+@protocol TGImageV1;
+@class TGImageV1;
 
 
 
@@ -34,9 +28,9 @@
 
 @property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) TGHost* recipient;
+@property(nonatomic) NSObject* recipient;
 
-@property(nonatomic) TGLocation* location;
+@property(nonatomic) NSObject* location;
 /* this can be one of the following states: 'processing', 'recipient_matched', 'needs_attention' or 'picked_up' 
  */
 @property(nonatomic) NSString* packageState;
@@ -48,6 +42,6 @@
 
 @property(nonatomic) NSDate* createdAt;
 
-@property(nonatomic) TGImage* image;
+@property(nonatomic) TGImageV1* image;
 
 @end

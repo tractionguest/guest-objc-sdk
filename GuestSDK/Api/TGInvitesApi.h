@@ -1,8 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "TGErrorsList.h"
 #import "TGInviteCreateParams.h"
+#import "TGInviteCreateParams1.h"
 #import "TGInviteDetail.h"
-#import "TGInviteUpdateParams.h"
 #import "TGPaginatedInvitesList.h"
 #import "TGApi.h"
 
@@ -41,11 +40,11 @@ extern NSInteger kTGInvitesApiMissingParamErrorCode;
 ///  code:404 message:"The Location does not exist",
 ///  code:422 message:"Your request was not formatted correctly"
 ///
-/// @return TGInviteDetail*
+/// @return NSObject*
 -(NSURLSessionTask*) createLocationInviteWithLocationId: (NSString*) locationId
     inviteCreateParams: (TGInviteCreateParams*) inviteCreateParams
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
 /// Create an Invite from a Registration
@@ -61,10 +60,10 @@ extern NSInteger kTGInvitesApiMissingParamErrorCode;
 ///  code:404 message:"The Location does not exist",
 ///  code:422 message:"Your request was not formatted correctly"
 ///
-/// @return TGInviteDetail*
+/// @return NSObject*
 -(NSURLSessionTask*) createRegistrationInviteWithRegistrationId: (NSString*) registrationId
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
 /// Deletes an Invite
@@ -141,7 +140,7 @@ extern NSInteger kTGInvitesApiMissingParamErrorCode;
 /// Updates an existing `Invite`.
 ///
 /// @param inviteId 
-/// @param inviteUpdateParams Updated &#x60;Invite&#x60; information.
+/// @param inviteCreateParams1 
 /// @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored (optional)
 /// 
 ///  code:202 message:"Successful response.",
@@ -151,11 +150,11 @@ extern NSInteger kTGInvitesApiMissingParamErrorCode;
 ///  code:404 message:"The Invite does not exist",
 ///  code:422 message:"Your request was not formatted correctly"
 ///
-/// @return TGInviteDetail*
+/// @return NSObject*
 -(NSURLSessionTask*) updateInviteWithInviteId: (NSString*) inviteId
-    inviteUpdateParams: (TGInviteUpdateParams*) inviteUpdateParams
+    inviteCreateParams1: (TGInviteCreateParams1*) inviteCreateParams1
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 
 
 

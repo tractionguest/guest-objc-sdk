@@ -14,12 +14,6 @@
 */
 
 
-#import "TGLocation.h"
-#import "TGPagination.h"
-@protocol TGLocation;
-@class TGLocation;
-@protocol TGPagination;
-@class TGPagination;
 
 
 
@@ -29,8 +23,8 @@
 @interface TGPaginatedLocationsList : TGObject
 
 
-@property(nonatomic) NSArray<TGLocation>* locations;
+@property(nonatomic) NSArray<NSObject*>* locations;
 
-@property(nonatomic) TGPagination* pagination;
+@property(nonatomic) NSObject* pagination;
 
 @end

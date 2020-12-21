@@ -16,14 +16,11 @@
 
 #import "TGGuestResponse.h"
 #import "TGInvite.h"
-#import "TGSignin.h"
 #import "TGVisitor.h"
 @protocol TGGuestResponse;
 @class TGGuestResponse;
 @protocol TGInvite;
 @class TGInvite;
-@protocol TGSignin;
-@class TGSignin;
 @protocol TGVisitor;
 @class TGVisitor;
 
@@ -60,6 +57,6 @@
  */
 @property(nonatomic) NSDate* createdAt;
 
-@property(nonatomic) TGSignin* signin;
+@property(nonatomic) NSObject* signin;
 
 @end

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 -(NSURLSessionTask*) createLocationInviteWithLocationId: (NSString*) locationId
     inviteCreateParams: (TGInviteCreateParams*) inviteCreateParams
     idempotencyKey: (NSString*) idempotencyKey
-        completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
 Create an Invite
@@ -30,7 +30,7 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* locationId = @"locationId_example"; // 
-TGInviteCreateParams* inviteCreateParams = {"company":"some text","email":"some text","end_date":"2020-07-17T01:59:59.999Z","last_name":"some text","start_date":"2020-07-17T01:59:59.999Z","title":"some text","watchlist_colour":"ORANGE","host_ids":[96,2],"custom_fields":[{"format":"string","field_name":"some text","field_value":"some text"},{"format":"string","field_name":"some text","field_value":"some text"}],"email_template_id":53,"mobile_number":"some text","first_name":"some text","notification_triggers":[{"offset_direction":"BEFORE","offset_unit":"days","offset_amount":34,"offset_origin":"START","email_template_id":63,"notification_groups":["some text","some text"]},{"offset_direction":"AFTER","offset_unit":"hours","offset_amount":12,"offset_origin":"END","email_template_id":2,"notification_groups":["some text","some text"]}]}; // 
+TGInviteCreateParams* inviteCreateParams = [[TGInviteCreateParams alloc] init]; // 
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
@@ -39,7 +39,7 @@ TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
 [apiInstance createLocationInviteWithLocationId:locationId
               inviteCreateParams:inviteCreateParams
               idempotencyKey:idempotencyKey
-          completionHandler: ^(TGInviteDetail* output, NSError* error) {
+          completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TGInviteDetail***](TGInviteDetail.md)
+**NSObject***
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) createRegistrationInviteWithRegistrationId: (NSString*) registrationId
     idempotencyKey: (NSString*) idempotencyKey
-        completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
 Create an Invite from a Registration
@@ -96,7 +96,7 @@ TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
 // Create an Invite from a Registration
 [apiInstance createRegistrationInviteWithRegistrationId:registrationId
               idempotencyKey:idempotencyKey
-          completionHandler: ^(TGInviteDetail* output, NSError* error) {
+          completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TGInviteDetail***](TGInviteDetail.md)
+**NSObject***
 
 ### Authorization
 
@@ -336,9 +336,9 @@ Name | Type | Description  | Notes
 # **updateInvite**
 ```objc
 -(NSURLSessionTask*) updateInviteWithInviteId: (NSString*) inviteId
-    inviteUpdateParams: (TGInviteUpdateParams*) inviteUpdateParams
+    inviteCreateParams1: (TGInviteCreateParams1*) inviteCreateParams1
     idempotencyKey: (NSString*) idempotencyKey
-        completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
 ```
 
 Update an Invite
@@ -351,16 +351,16 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* inviteId = @"inviteId_example"; // 
-TGInviteUpdateParams* inviteUpdateParams = {"checked_in":true,"on_premise":true,"sent_email":"some text","user_id":45,"device_configuration_id":14}; // Updated `Invite` information.
+TGInviteCreateParams1* inviteCreateParams1 = [[TGInviteCreateParams1 alloc] init]; // 
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
 
 // Update an Invite
 [apiInstance updateInviteWithInviteId:inviteId
-              inviteUpdateParams:inviteUpdateParams
+              inviteCreateParams1:inviteCreateParams1
               idempotencyKey:idempotencyKey
-          completionHandler: ^(TGInviteDetail* output, NSError* error) {
+          completionHandler: ^(NSObject* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -375,12 +375,12 @@ TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inviteId** | **NSString***|  | 
- **inviteUpdateParams** | [**TGInviteUpdateParams***](TGInviteUpdateParams.md)| Updated &#x60;Invite&#x60; information. | 
+ **inviteCreateParams1** | [**TGInviteCreateParams1***](TGInviteCreateParams1.md)|  | 
  **idempotencyKey** | **NSString***| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] 
 
 ### Return type
 
-[**TGInviteDetail***](TGInviteDetail.md)
+**NSObject***
 
 ### Authorization
 

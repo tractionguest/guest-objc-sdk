@@ -75,19 +75,19 @@ Import the following:
 #import <GuestSDK/TGHost.h>
 #import <GuestSDK/TGHostBatchCreateParams.h>
 #import <GuestSDK/TGHostCreateParams.h>
-#import <GuestSDK/TGImage.h>
+#import <GuestSDK/TGImageV1.h>
 #import <GuestSDK/TGInternalWatchlistResult.h>
 #import <GuestSDK/TGInvite.h>
 #import <GuestSDK/TGInviteCreateParams.h>
+#import <GuestSDK/TGInviteCreateParams1.h>
 #import <GuestSDK/TGInviteDetail.h>
-#import <GuestSDK/TGInviteUpdateParams.h>
 #import <GuestSDK/TGInviteWatchlist.h>
 #import <GuestSDK/TGLocation.h>
 #import <GuestSDK/TGNotificationTrigger.h>
-#import <GuestSDK/TGNotificationTriggerCreateParams.h>
+#import <GuestSDK/TGNotificationTrigger1.h>
 #import <GuestSDK/TGPackage.h>
-#import <GuestSDK/TGPackageCreateParams.h>
-#import <GuestSDK/TGPackageUpdateParams.h>
+#import <GuestSDK/TGPackageCreateParamsV1.h>
+#import <GuestSDK/TGPackageUpdateParamsV1.h>
 #import <GuestSDK/TGPaginatedAuditLogsList.h>
 #import <GuestSDK/TGPaginatedEmailTemplatesList.h>
 #import <GuestSDK/TGPaginatedHostsList.h>
@@ -98,7 +98,7 @@ Import the following:
 #import <GuestSDK/TGPaginatedSigninsList.h>
 #import <GuestSDK/TGPaginatedWatchlistList.h>
 #import <GuestSDK/TGPagination.h>
-#import <GuestSDK/TGPermissionGroup.h>
+#import <GuestSDK/TGPermission.h>
 #import <GuestSDK/TGRegistration.h>
 #import <GuestSDK/TGRegistrationDetail.h>
 #import <GuestSDK/TGSignableDocument.h>
@@ -221,19 +221,19 @@ Class | Method | HTTP request | Description
  - [TGHost](docs/TGHost.md)
  - [TGHostBatchCreateParams](docs/TGHostBatchCreateParams.md)
  - [TGHostCreateParams](docs/TGHostCreateParams.md)
- - [TGImage](docs/TGImage.md)
+ - [TGImageV1](docs/TGImageV1.md)
  - [TGInternalWatchlistResult](docs/TGInternalWatchlistResult.md)
  - [TGInvite](docs/TGInvite.md)
  - [TGInviteCreateParams](docs/TGInviteCreateParams.md)
+ - [TGInviteCreateParams1](docs/TGInviteCreateParams1.md)
  - [TGInviteDetail](docs/TGInviteDetail.md)
- - [TGInviteUpdateParams](docs/TGInviteUpdateParams.md)
  - [TGInviteWatchlist](docs/TGInviteWatchlist.md)
  - [TGLocation](docs/TGLocation.md)
  - [TGNotificationTrigger](docs/TGNotificationTrigger.md)
- - [TGNotificationTriggerCreateParams](docs/TGNotificationTriggerCreateParams.md)
+ - [TGNotificationTrigger1](docs/TGNotificationTrigger1.md)
  - [TGPackage](docs/TGPackage.md)
- - [TGPackageCreateParams](docs/TGPackageCreateParams.md)
- - [TGPackageUpdateParams](docs/TGPackageUpdateParams.md)
+ - [TGPackageCreateParamsV1](docs/TGPackageCreateParamsV1.md)
+ - [TGPackageUpdateParamsV1](docs/TGPackageUpdateParamsV1.md)
  - [TGPaginatedAuditLogsList](docs/TGPaginatedAuditLogsList.md)
  - [TGPaginatedEmailTemplatesList](docs/TGPaginatedEmailTemplatesList.md)
  - [TGPaginatedHostsList](docs/TGPaginatedHostsList.md)
@@ -244,7 +244,7 @@ Class | Method | HTTP request | Description
  - [TGPaginatedSigninsList](docs/TGPaginatedSigninsList.md)
  - [TGPaginatedWatchlistList](docs/TGPaginatedWatchlistList.md)
  - [TGPagination](docs/TGPagination.md)
- - [TGPermissionGroup](docs/TGPermissionGroup.md)
+ - [TGPermission](docs/TGPermission.md)
  - [TGRegistration](docs/TGRegistration.md)
  - [TGRegistrationDetail](docs/TGRegistrationDetail.md)
  - [TGSignableDocument](docs/TGSignableDocument.md)

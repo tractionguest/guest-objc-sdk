@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "TGErrorsList.h"
 #import "TGLocation.h"
 #import "TGPaginatedLocationsList.h"
 #import "TGApi.h"

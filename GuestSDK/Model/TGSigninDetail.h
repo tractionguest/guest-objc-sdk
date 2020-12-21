@@ -14,24 +14,15 @@
 */
 
 
-#import "TGHost.h"
-#import "TGRegistration.h"
 #import "TGSignableDocument.h"
 #import "TGSigninAcknowledgement.h"
 #import "TGSigninData.h"
-#import "TGSigninWatchlist.h"
-@protocol TGHost;
-@class TGHost;
-@protocol TGRegistration;
-@class TGRegistration;
 @protocol TGSignableDocument;
 @class TGSignableDocument;
 @protocol TGSigninAcknowledgement;
 @class TGSigninAcknowledgement;
 @protocol TGSigninData;
 @class TGSigninData;
-@protocol TGSigninWatchlist;
-@class TGSigninWatchlist;
 
 
 
@@ -45,9 +36,9 @@
 
 @property(nonatomic) NSArray<TGSignableDocument>* documents;
 
-@property(nonatomic) TGSigninWatchlist* signinWatchlist;
+@property(nonatomic) NSObject* signinWatchlist;
 
-@property(nonatomic) NSArray<TGHost>* hosts;
+@property(nonatomic) NSArray<NSObject*>* hosts;
 
 @property(nonatomic) NSArray<TGSigninData>* signinData;
 
@@ -81,6 +72,6 @@
 
 @property(nonatomic) NSString* company;
 
-@property(nonatomic) TGRegistration* registration;
+@property(nonatomic) NSObject* registration;
 
 @end

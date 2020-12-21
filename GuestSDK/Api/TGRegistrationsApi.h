@@ -1,5 +1,4 @@
 #import <Foundation/Foundation.h>
-#import "TGErrorsList.h"
 #import "TGPaginatedRegistrationsList.h"
 #import "TGRegistrationDetail.h"
 #import "TGApi.h"

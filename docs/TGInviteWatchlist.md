@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **NSNumber*** |  | 
-**internal** | [**NSArray&lt;TGInternalWatchlistResult&gt;***](TGInternalWatchlistResult.md) |  | [optional] 
-**external** | [**NSArray&lt;TGExternalWatchlistResult&gt;***](TGExternalWatchlistResult.md) |  | [optional] 
+**internal** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
+**external** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
 **internalColours** | **NSArray&lt;NSString*&gt;*** | Deprecated | [optional] 
 **externalColours** | **NSArray&lt;NSString*&gt;*** | Deprecated | [optional] 
 

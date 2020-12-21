@@ -14,12 +14,6 @@
 */
 
 
-#import "TGCustomField.h"
-#import "TGNotificationTriggerCreateParams.h"
-@protocol TGCustomField;
-@class TGCustomField;
-@protocol TGNotificationTriggerCreateParams;
-@class TGNotificationTriggerCreateParams;
 
 
 
@@ -31,13 +25,13 @@
 
 @property(nonatomic) NSString* mobileNumber;
 
-@property(nonatomic) NSArray<TGNotificationTriggerCreateParams>* notificationTriggers;
+@property(nonatomic) NSArray<NSObject*>* notificationTriggers;
 
 @property(nonatomic) NSString* firstName;
 
 @property(nonatomic) NSNumber* emailTemplateId;
 
-@property(nonatomic) NSArray<TGCustomField>* customFields;
+@property(nonatomic) NSArray<NSObject*>* customFields;
 
 @property(nonatomic) NSArray<NSNumber*>* hostIds;
 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **NSNumber*** |  | 
 **mobileAccessEnabled** | **NSNumber*** | Identifies if user has access to mobile app features. | 
-**permissionGroups** | [**NSArray&lt;TGPermissionGroup&gt;***](TGPermissionGroup.md) |  | [optional] 
+**permissionGroups** | [**NSArray&lt;TGPermission&gt;***](TGPermission.md) |  | [optional] 
 **email** | **NSString*** |  | 
 **lastName** | **NSString*** |  | [optional] 
 **firstName** | **NSString*** | Determines if the registration portal has been enabled for this account | [optional] 

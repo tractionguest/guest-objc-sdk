@@ -1,10 +1,9 @@
 #import "TGInvitesApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
-#import "TGErrorsList.h"
 #import "TGInviteCreateParams.h"
+#import "TGInviteCreateParams1.h"
 #import "TGInviteDetail.h"
-#import "TGInviteUpdateParams.h"
 #import "TGPaginatedInvitesList.h"
 
 
@@ -62,12 +61,12 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @returns TGInviteDetail*
+///  @returns NSObject*
 ///
 -(NSURLSessionTask*) createLocationInviteWithLocationId: (NSString*) locationId
     inviteCreateParams: (TGInviteCreateParams*) inviteCreateParams
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'locationId' is set
     if (locationId == nil) {
         NSParameterAssert(locationId);
@@ -134,10 +133,10 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGInviteDetail*"
+                              responseType: @"NSObject*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGInviteDetail*)data, error);
+                                    handler((NSObject*)data, error);
                                 }
                             }];
 }
@@ -149,11 +148,11 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @returns TGInviteDetail*
+///  @returns NSObject*
 ///
 -(NSURLSessionTask*) createRegistrationInviteWithRegistrationId: (NSString*) registrationId
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'registrationId' is set
     if (registrationId == nil) {
         NSParameterAssert(registrationId);
@@ -208,10 +207,10 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGInviteDetail*"
+                              responseType: @"NSObject*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGInviteDetail*)data, error);
+                                    handler((NSObject*)data, error);
                                 }
                             }];
 }
@@ -492,16 +491,16 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
 /// Updates an existing `Invite`.
 ///  @param inviteId  
 ///
-///  @param inviteUpdateParams Updated `Invite` information. 
+///  @param inviteCreateParams1  
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @returns TGInviteDetail*
+///  @returns NSObject*
 ///
 -(NSURLSessionTask*) updateInviteWithInviteId: (NSString*) inviteId
-    inviteUpdateParams: (TGInviteUpdateParams*) inviteUpdateParams
+    inviteCreateParams1: (TGInviteCreateParams1*) inviteCreateParams1
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(TGInviteDetail* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
     // verify the required parameter 'inviteId' is set
     if (inviteId == nil) {
         NSParameterAssert(inviteId);
@@ -513,11 +512,11 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'inviteUpdateParams' is set
-    if (inviteUpdateParams == nil) {
-        NSParameterAssert(inviteUpdateParams);
+    // verify the required parameter 'inviteCreateParams1' is set
+    if (inviteCreateParams1 == nil) {
+        NSParameterAssert(inviteCreateParams1);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inviteUpdateParams"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"inviteCreateParams1"] };
             NSError* error = [NSError errorWithDomain:kTGInvitesApiErrorDomain code:kTGInvitesApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -555,7 +554,7 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = inviteUpdateParams;
+    bodyParam = inviteCreateParams1;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -568,10 +567,10 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGInviteDetail*"
+                              responseType: @"NSObject*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGInviteDetail*)data, error);
+                                    handler((NSObject*)data, error);
                                 }
                             }];
 }

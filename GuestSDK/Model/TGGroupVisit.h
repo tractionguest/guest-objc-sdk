@@ -14,12 +14,6 @@
 */
 
 
-#import "TGHost.h"
-#import "TGLocation.h"
-@protocol TGHost;
-@class TGHost;
-@protocol TGLocation;
-@class TGLocation;
 
 
 
@@ -31,9 +25,9 @@
 
 @property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) TGLocation* location;
+@property(nonatomic) NSObject* location;
 
-@property(nonatomic) NSArray<TGHost>* hosts;
+@property(nonatomic) NSArray<NSObject*>* hosts;
 
 @property(nonatomic) NSString* name;
 

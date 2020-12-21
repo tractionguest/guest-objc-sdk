@@ -14,10 +14,7 @@
 */
 
 
-#import "TGHost.h"
 #import "TGPagination.h"
-@protocol TGHost;
-@class TGHost;
 @protocol TGPagination;
 @class TGPagination;
 
@@ -31,6 +28,6 @@
 
 @property(nonatomic) TGPagination* pagination;
 
-@property(nonatomic) NSArray<TGHost>* hosts;
+@property(nonatomic) NSArray<NSObject*>* hosts;
 
 @end

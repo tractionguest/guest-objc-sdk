@@ -1,7 +1,6 @@
 #import "TGRegistrationsApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
-#import "TGErrorsList.h"
 #import "TGPaginatedRegistrationsList.h"
 #import "TGRegistrationDetail.h"
 

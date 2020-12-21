@@ -1,7 +1,6 @@
 #import "TGUsersApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
-#import "TGErrorsList.h"
 #import "TGUser.h"
 
 

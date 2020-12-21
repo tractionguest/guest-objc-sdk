@@ -14,12 +14,6 @@
 */
 
 
-#import "TGPagination.h"
-#import "TGRegistration.h"
-@protocol TGPagination;
-@class TGPagination;
-@protocol TGRegistration;
-@class TGRegistration;
 
 
 
@@ -29,8 +23,8 @@
 @interface TGPaginatedRegistrationsList : TGObject
 
 
-@property(nonatomic) NSArray<TGRegistration>* registrations;
+@property(nonatomic) NSArray<NSObject*>* registrations;
 
-@property(nonatomic) TGPagination* pagination;
+@property(nonatomic) NSObject* pagination;
 
 @end

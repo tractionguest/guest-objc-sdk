@@ -25,40 +25,29 @@
 
 @interface TGAuditLog : TGObject
 
-/*  
- */
+
 @property(nonatomic) NSNumber* _id;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* createdAt;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* requestUuid;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* remoteAddress;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* comment;
-/*  [optional]
- */
+
 @property(nonatomic) NSNumber* version;
 
 @property(nonatomic) NSArray<TGAuditLogChange>* auditedChanges;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* action;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* username;
-/*  [optional]
- */
+
 @property(nonatomic) NSNumber* userId;
-/*  [optional]
- */
+
 @property(nonatomic) NSString* auditableType;
-/*  [optional]
- */
+
 @property(nonatomic) NSNumber* auditableId;
 
 @end

@@ -4,10 +4,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **mobileNumber** | **NSString*** |  | [optional] 
-**notificationTriggers** | [**NSArray&lt;TGNotificationTriggerCreateParams&gt;***](TGNotificationTriggerCreateParams.md) |  | [optional] 
+**notificationTriggers** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
 **firstName** | **NSString*** |  | 
 **emailTemplateId** | **NSNumber*** |  | [optional] 
-**customFields** | [**NSArray&lt;TGCustomField&gt;***](TGCustomField.md) |  | [optional] 
+**customFields** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
 **hostIds** | **NSArray&lt;NSNumber*&gt;*** |  | [optional] 
 **watchlistColour** | **NSString*** |  | [optional] 
 **title** | **NSString*** |  | [optional] 

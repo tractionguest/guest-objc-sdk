@@ -14,21 +14,6 @@
 */
 
 
-#import "TGGroupVisit.h"
-#import "TGHost.h"
-#import "TGInviteWatchlist.h"
-#import "TGLocation.h"
-#import "TGRegistration.h"
-@protocol TGGroupVisit;
-@class TGGroupVisit;
-@protocol TGHost;
-@class TGHost;
-@protocol TGInviteWatchlist;
-@class TGInviteWatchlist;
-@protocol TGLocation;
-@class TGLocation;
-@protocol TGRegistration;
-@class TGRegistration;
 
 
 
@@ -40,24 +25,21 @@
 
 @property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) TGRegistration* registration;
-/*  [optional]
- */
+@property(nonatomic) NSObject* registration;
+
 @property(nonatomic) NSString* mobileNumber;
-/*  
- */
+
 @property(nonatomic) NSString* email;
-/*  [optional]
- */
+
 @property(nonatomic) NSDate* endDate;
 
-@property(nonatomic) TGInviteWatchlist* inviteWatchlist;
+@property(nonatomic) NSObject* inviteWatchlist;
 
-@property(nonatomic) NSArray<TGHost>* hosts;
+@property(nonatomic) NSArray<NSObject*>* hosts;
 
 @property(nonatomic) NSString* watchlistColour;
 
-@property(nonatomic) TGLocation* location;
+@property(nonatomic) NSObject* location;
 
 @property(nonatomic) NSDate* startDate;
 
@@ -65,6 +47,6 @@
 
 @property(nonatomic) NSString* firstName;
 
-@property(nonatomic) TGGroupVisit* groupVisit;
+@property(nonatomic) NSObject* groupVisit;
 
 @end

@@ -14,12 +14,6 @@
 */
 
 
-#import "TGEmailTemplate.h"
-#import "TGPagination.h"
-@protocol TGEmailTemplate;
-@class TGEmailTemplate;
-@protocol TGPagination;
-@class TGPagination;
 
 
 
@@ -29,8 +23,8 @@
 @interface TGPaginatedEmailTemplatesList : TGObject
 
 
-@property(nonatomic) TGPagination* pagination;
+@property(nonatomic) NSObject* pagination;
 
-@property(nonatomic) NSArray<TGEmailTemplate>* emailTemplates;
+@property(nonatomic) NSArray<NSObject*>* emailTemplates;
 
 @end

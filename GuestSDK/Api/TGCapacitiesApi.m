@@ -3,7 +3,6 @@
 #import "TGApiClient.h"
 #import "TGCapacity.h"
 #import "TGCapacityForecast.h"
-#import "TGErrorsList.h"
 
 
 @interface TGCapacitiesApi ()

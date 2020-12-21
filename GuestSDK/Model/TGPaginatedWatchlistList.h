@@ -14,12 +14,6 @@
 */
 
 
-#import "TGPagination.h"
-#import "TGWatchlist.h"
-@protocol TGPagination;
-@class TGPagination;
-@protocol TGWatchlist;
-@class TGWatchlist;
 
 
 
@@ -29,8 +23,8 @@
 @interface TGPaginatedWatchlistList : TGObject
 
 
-@property(nonatomic) NSArray<TGWatchlist>* watchlists;
+@property(nonatomic) NSArray<NSObject*>* watchlists;
 
-@property(nonatomic) TGPagination* pagination;
+@property(nonatomic) NSObject* pagination;
 
 @end

@@ -14,9 +14,6 @@
 */
 
 
-#import "TGCustomField.h"
-@protocol TGCustomField;
-@class TGCustomField;
 
 
 
@@ -26,7 +23,7 @@
 @interface TGSigninData : TGObject
 
 
-@property(nonatomic) NSArray<TGCustomField>* customFields;
+@property(nonatomic) NSArray<NSObject*>* customFields;
 
 @property(nonatomic) NSString* name;
 
