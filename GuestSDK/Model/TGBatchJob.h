@@ -14,6 +14,9 @@
 */
 
 
+#import "TGUser.h"
+@protocol TGUser;
+@class TGUser;
 
 
 
@@ -33,6 +36,6 @@
 
 @property(nonatomic) NSString* workerName;
 
-@property(nonatomic) NSObject* user;
+@property(nonatomic) TGUser* user;
 
 @end

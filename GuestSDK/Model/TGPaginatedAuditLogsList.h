@@ -14,6 +14,12 @@
 */
 
 
+#import "TGAuditLog.h"
+#import "TGPagination.h"
+@protocol TGAuditLog;
+@class TGAuditLog;
+@protocol TGPagination;
+@class TGPagination;
 
 
 
@@ -23,8 +29,8 @@
 @interface TGPaginatedAuditLogsList : TGObject
 
 
-@property(nonatomic) NSObject* pagination;
+@property(nonatomic) TGPagination* pagination;
 
-@property(nonatomic) NSArray<NSObject*>* auditLogs;
+@property(nonatomic) NSArray<TGAuditLog>* auditLogs;
 
 @end

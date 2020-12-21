@@ -30,7 +30,7 @@
 @property(nonatomic) NSNumber* offsetAmount;
 /* Whether the offset should be calculated from the start, or finish of the event 
  */
-@property(nonatomic) NSString* offsetOrigin;
+@property(nonatomic) NSObject* offsetOrigin;
 
 @property(nonatomic) NSNumber* emailTemplateId;
 /* An array made of only `INVITEE`, `HOSTS, or `LEP` as possible string values 

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "TGAuditLog.h"
+#import "TGErrorsList.h"
 #import "TGPaginatedAuditLogsList.h"
 #import "TGApi.h"
 

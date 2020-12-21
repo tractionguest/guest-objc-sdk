@@ -4,18 +4,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **NSNumber*** |  | 
-**registration** | **NSObject*** |  | [optional] 
+**registration** | [**TGRegistration***](TGRegistration.md) |  | [optional] 
 **mobileNumber** | **NSString*** |  | [optional] 
 **email** | **NSString*** |  | 
 **endDate** | **NSDate*** |  | [optional] 
-**inviteWatchlist** | **NSObject*** |  | [optional] 
-**hosts** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
+**inviteWatchlist** | [**TGInviteWatchlist***](TGInviteWatchlist.md) |  | [optional] 
+**hosts** | [**NSArray&lt;TGHost&gt;***](TGHost.md) |  | [optional] 
 **watchlistColour** | **NSString*** |  | [optional] 
-**location** | **NSObject*** |  | [optional] 
+**location** | [**TGLocation***](TGLocation.md) |  | [optional] 
 **startDate** | **NSDate*** |  | [optional] 
 **lastName** | **NSString*** |  | 
 **firstName** | **NSString*** |  | 
-**groupVisit** | **NSObject*** |  | [optional] 
+**groupVisit** | [**TGGroupVisit***](TGGroupVisit.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

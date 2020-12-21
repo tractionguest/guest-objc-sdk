@@ -32,7 +32,8 @@
 @property(nonatomic) NSString* lastName;
 
 @property(nonatomic) NSString* profilePicUrl;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* department;
 
 @property(nonatomic) NSString* mobileNumber;

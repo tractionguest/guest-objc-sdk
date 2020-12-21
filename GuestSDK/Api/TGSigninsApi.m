@@ -1,6 +1,7 @@
 #import "TGSigninsApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
+#import "TGErrorsList.h"
 #import "TGPaginatedSigninsList.h"
 #import "TGSignin.h"
 #import "TGSigninCreateParams.h"
@@ -56,7 +57,7 @@ NSInteger kTGSigninsApiMissingParamErrorCode = 234513;
 ///
 /// Create Signin
 /// Creates a Signin
-///  @param signinCreateParams  (optional)
+///  @param signinCreateParams Params for creating a Signin can omit certain fields if a `registration_id` is present. (optional)
 ///
 ///  @returns TGSignin*
 ///
@@ -304,16 +305,16 @@ NSInteger kTGSigninsApiMissingParamErrorCode = 234513;
 /// Update, acknowledge, or `Signout` a `Signin`
 ///  @param signinId  
 ///
-///  @param signinUpdateParams  
+///  @param signinUpdateParams The only updatable values for a `Signin` are `badge_number`, `badge_returned`, `is_accounted_for`, `is_signed_out`, and `is_acknowledged`.  `is_signed_out` and `is_acknowledged` are pseudo attributes that once set to true, are irreversible. 
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @returns NSObject*
+///  @returns TGSigninDetail*
 ///
 -(NSURLSessionTask*) updateSigninWithSigninId: (NSString*) signinId
     signinUpdateParams: (TGSigninUpdateParams*) signinUpdateParams
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(TGSigninDetail* output, NSError* error)) handler {
     // verify the required parameter 'signinId' is set
     if (signinId == nil) {
         NSParameterAssert(signinId);
@@ -380,10 +381,10 @@ NSInteger kTGSigninsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"TGSigninDetail*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((TGSigninDetail*)data, error);
                                 }
                             }];
 }

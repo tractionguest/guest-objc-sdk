@@ -22,23 +22,32 @@
 
 @interface TGDocusign : TGObject
 
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* templateId;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* integration;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* ndaStatus;
-
+/*  [optional]
+ */
 @property(nonatomic) NSDate* ndaSignedDate;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* envelopeId;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* sequence;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* docusignId;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* docusignName;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* title;
 
 @end

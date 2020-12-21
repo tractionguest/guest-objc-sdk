@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "TGErrorsList.h"
 #import "TGPaginatedSigninsList.h"
 #import "TGSignin.h"
 #import "TGSigninCreateParams.h"
@@ -30,7 +31,7 @@ extern NSInteger kTGSigninsApiMissingParamErrorCode;
 /// Create Signin
 /// Creates a Signin
 ///
-/// @param signinCreateParams  (optional)
+/// @param signinCreateParams Params for creating a Signin can omit certain fields if a &#x60;registration_id&#x60; is present. (optional)
 /// 
 ///  code:201 message:"Created",
 ///  code:400 message:"Bad Request",
@@ -100,7 +101,7 @@ extern NSInteger kTGSigninsApiMissingParamErrorCode;
 /// Update, acknowledge, or `Signout` a `Signin`
 ///
 /// @param signinId 
-/// @param signinUpdateParams 
+/// @param signinUpdateParams The only updatable values for a &#x60;Signin&#x60; are &#x60;badge_number&#x60;, &#x60;badge_returned&#x60;, &#x60;is_accounted_for&#x60;, &#x60;is_signed_out&#x60;, and &#x60;is_acknowledged&#x60;.  &#x60;is_signed_out&#x60; and &#x60;is_acknowledged&#x60; are pseudo attributes that once set to true, are irreversible.
 /// @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored (optional)
 /// 
 ///  code:200 message:"The Signin has been acknowledged, or signed out.",
@@ -110,11 +111,11 @@ extern NSInteger kTGSigninsApiMissingParamErrorCode;
 ///  code:404 message:"The Signin does not exist",
 ///  code:422 message:"Your request was not formatted correctly"
 ///
-/// @return NSObject*
+/// @return TGSigninDetail*
 -(NSURLSessionTask*) updateSigninWithSigninId: (NSString*) signinId
     signinUpdateParams: (TGSigninUpdateParams*) signinUpdateParams
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(TGSigninDetail* output, NSError* error)) handler;
 
 
 

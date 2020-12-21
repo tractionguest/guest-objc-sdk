@@ -14,18 +14,30 @@
 */
 
 
+#import "TGCustomField.h"
 #import "TGEmailTemplate.h"
 #import "TGGroupVisit.h"
+#import "TGHost.h"
 #import "TGInviteWatchlist.h"
+#import "TGLocation.h"
 #import "TGNotificationTrigger.h"
+#import "TGRegistration.h"
+@protocol TGCustomField;
+@class TGCustomField;
 @protocol TGEmailTemplate;
 @class TGEmailTemplate;
 @protocol TGGroupVisit;
 @class TGGroupVisit;
+@protocol TGHost;
+@class TGHost;
 @protocol TGInviteWatchlist;
 @class TGInviteWatchlist;
+@protocol TGLocation;
+@class TGLocation;
 @protocol TGNotificationTrigger;
 @class TGNotificationTrigger;
+@protocol TGRegistration;
+@class TGRegistration;
 
 
 
@@ -37,7 +49,7 @@
 
 @property(nonatomic) NSNumber* _id;
 
-@property(nonatomic) NSObject* registration;
+@property(nonatomic) TGRegistration* registration;
 /* Phone number [optional]
  */
 @property(nonatomic) NSString* mobileNumber;
@@ -49,13 +61,13 @@
  */
 @property(nonatomic) NSArray<TGNotificationTrigger>* notificationTriggers;
 
-@property(nonatomic) NSArray<NSObject*>* customFields;
+@property(nonatomic) NSArray<TGCustomField>* customFields;
 
 @property(nonatomic) NSString* watchlistColour;
 
-@property(nonatomic) NSObject* location;
+@property(nonatomic) TGLocation* location;
 
-@property(nonatomic) NSArray<NSObject*>* hosts;
+@property(nonatomic) NSArray<TGHost>* hosts;
 
 @property(nonatomic) NSDate* startDate;
 

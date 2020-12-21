@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **_id** | **NSNumber*** |  | 
 **mobileNumber** | **NSString*** |  | [optional] 
 **signinWatchlist** | [**TGSigninWatchlist***](TGSigninWatchlist.md) |  | [optional] 
-**hosts** | **NSArray&lt;NSObject*&gt;*** |  | 
+**hosts** | [**NSArray&lt;TGHost&gt;***](TGHost.md) |  | 
 **signinTimestamp** | **NSDate*** |  | [optional] 
 **signinPhotoUrl** | **NSString*** |  | [optional] 
 **signedOutTimestamp** | **NSDate*** |  | [optional] 

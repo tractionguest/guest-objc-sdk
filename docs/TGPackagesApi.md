@@ -1,6 +1,6 @@
 # TGPackagesApi
 
-All URIs are relative to *https://tractionguest.ca/api/v3*
+All URIs are relative to *https://us.tractionguest.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 # **createPackage**
 ```objc
--(NSURLSessionTask*) createPackageWithPackageCreateParamsV1: (TGPackageCreateParamsV1*) packageCreateParamsV1
+-(NSURLSessionTask*) createPackageWithPackageCreateParams: (TGPackageCreateParams*) packageCreateParams
         completionHandler: (void (^)(TGPackage* output, NSError* error)) handler;
 ```
 
@@ -26,12 +26,12 @@ Creates a [Package] entity by extracting information about the recipient and car
 TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
-TGPackageCreateParamsV1* packageCreateParamsV1 = [[TGPackageCreateParamsV1 alloc] init]; //  (optional)
+TGPackageCreateParams* packageCreateParams = [[TGPackageCreateParams alloc] init]; // Parameters for creating a package (optional)
 
 TGPackagesApi*apiInstance = [[TGPackagesApi alloc] init];
 
 // Create package
-[apiInstance createPackageWithPackageCreateParamsV1:packageCreateParamsV1
+[apiInstance createPackageWithPackageCreateParams:packageCreateParams
           completionHandler: ^(TGPackage* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -46,7 +46,7 @@ TGPackagesApi*apiInstance = [[TGPackagesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **packageCreateParamsV1** | [**TGPackageCreateParamsV1***](TGPackageCreateParamsV1.md)|  | [optional] 
+ **packageCreateParams** | [**TGPackageCreateParams***](TGPackageCreateParams.md)| Parameters for creating a package | [optional] 
 
 ### Return type
 
@@ -119,7 +119,7 @@ void (empty response body)
 ```objc
 -(NSURLSessionTask*) getPackageWithPackageId: (NSString*) packageId
     include: (NSString*) include
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+        completionHandler: (void (^)(TGPackage* output, NSError* error)) handler;
 ```
 
 Get Package
@@ -139,7 +139,7 @@ TGPackagesApi*apiInstance = [[TGPackagesApi alloc] init];
 // Get Package
 [apiInstance getPackageWithPackageId:packageId
               include:include
-          completionHandler: ^(NSObject* output, NSError* error) {
+          completionHandler: ^(TGPackage* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSObject***
+[**TGPackage***](TGPackage.md)
 
 ### Authorization
 
@@ -247,8 +247,8 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) updatePackageWithPackageId: (NSString*) packageId
     idempotencyKey: (NSString*) idempotencyKey
-    packageUpdateParamsV1: (TGPackageUpdateParamsV1*) packageUpdateParamsV1
-        completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    packageUpdateParams: (TGPackageUpdateParams*) packageUpdateParams
+        completionHandler: (void (^)(TGPackage* output, NSError* error)) handler;
 ```
 
 Update Package
@@ -262,15 +262,15 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 NSString* packageId = @"packageId_example"; // 
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
-TGPackageUpdateParamsV1* packageUpdateParamsV1 = [[TGPackageUpdateParamsV1 alloc] init]; //  (optional)
+TGPackageUpdateParams* packageUpdateParams = [[TGPackageUpdateParams alloc] init]; //  (optional)
 
 TGPackagesApi*apiInstance = [[TGPackagesApi alloc] init];
 
 // Update Package
 [apiInstance updatePackageWithPackageId:packageId
               idempotencyKey:idempotencyKey
-              packageUpdateParamsV1:packageUpdateParamsV1
-          completionHandler: ^(NSObject* output, NSError* error) {
+              packageUpdateParams:packageUpdateParams
+          completionHandler: ^(TGPackage* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -286,11 +286,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packageId** | **NSString***|  | 
  **idempotencyKey** | **NSString***| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] 
- **packageUpdateParamsV1** | [**TGPackageUpdateParamsV1***](TGPackageUpdateParamsV1.md)|  | [optional] 
+ **packageUpdateParams** | [**TGPackageUpdateParams***](TGPackageUpdateParams.md)|  | [optional] 
 
 ### Return type
 
-**NSObject***
+[**TGPackage***](TGPackage.md)
 
 ### Authorization
 

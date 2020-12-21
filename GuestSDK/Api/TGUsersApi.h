@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "TGErrorsList.h"
 #import "TGUser.h"
 #import "TGApi.h"
 

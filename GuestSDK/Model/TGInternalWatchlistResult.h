@@ -22,15 +22,20 @@
 
 @interface TGInternalWatchlistResult : TGObject
 
-
+/*  [optional]
+ */
 @property(nonatomic) NSNumber* _id;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* email;
-
+/*  
+ */
 @property(nonatomic) NSString* colour;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* lastName;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* firstName;
 
 @end

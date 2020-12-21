@@ -14,6 +14,9 @@
 */
 
 
+#import "TGHostCreateParams.h"
+@protocol TGHostCreateParams;
+@class TGHostCreateParams;
 
 
 
@@ -23,6 +26,6 @@
 @interface TGHostBatchCreateParams : TGObject
 
 
-@property(nonatomic) NSArray<NSObject*>* hosts;
+@property(nonatomic) NSArray<TGHostCreateParams>* hosts;
 
 @end

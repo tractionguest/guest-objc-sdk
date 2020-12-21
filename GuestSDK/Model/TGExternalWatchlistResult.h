@@ -30,9 +30,11 @@
 
 
 @property(nonatomic) NSArray<TGWatchlistMatch>* matches;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* colour;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* integration;
 
 @property(nonatomic) TGWatchlistSearch* searchTerms;

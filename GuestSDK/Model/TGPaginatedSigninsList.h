@@ -14,6 +14,12 @@
 */
 
 
+#import "TGPagination.h"
+#import "TGSignin.h"
+@protocol TGPagination;
+@class TGPagination;
+@protocol TGSignin;
+@class TGSignin;
 
 
 
@@ -23,8 +29,8 @@
 @interface TGPaginatedSigninsList : TGObject
 
 
-@property(nonatomic) NSObject* pagination;
+@property(nonatomic) TGPagination* pagination;
 
-@property(nonatomic) NSArray<NSObject*>* signins;
+@property(nonatomic) NSArray<TGSignin>* signins;
 
 @end

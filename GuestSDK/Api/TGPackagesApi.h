@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
+#import "TGErrorsList.h"
 #import "TGPackage.h"
-#import "TGPackageCreateParamsV1.h"
-#import "TGPackageUpdateParamsV1.h"
+#import "TGPackageCreateParams.h"
+#import "TGPackageUpdateParams.h"
 #import "TGPaginatedPackagesList.h"
 #import "TGApi.h"
 
@@ -29,13 +30,13 @@ extern NSInteger kTGPackagesApiMissingParamErrorCode;
 /// Create package
 /// Creates a [Package] entity by extracting information about the recipient and carrier from the given image file.
 ///
-/// @param packageCreateParamsV1  (optional)
+/// @param packageCreateParams Parameters for creating a package (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:4XX message:""
 ///
 /// @return TGPackage*
--(NSURLSessionTask*) createPackageWithPackageCreateParamsV1: (TGPackageCreateParamsV1*) packageCreateParamsV1
+-(NSURLSessionTask*) createPackageWithPackageCreateParams: (TGPackageCreateParams*) packageCreateParams
     completionHandler: (void (^)(TGPackage* output, NSError* error)) handler;
 
 
@@ -63,10 +64,10 @@ extern NSInteger kTGPackagesApiMissingParamErrorCode;
 ///  code:200 message:"",
 ///  code:4XX message:"User submission error"
 ///
-/// @return NSObject*
+/// @return TGPackage*
 -(NSURLSessionTask*) getPackageWithPackageId: (NSString*) packageId
     include: (NSString*) include
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler;
 
 
 /// Get packages
@@ -97,16 +98,16 @@ extern NSInteger kTGPackagesApiMissingParamErrorCode;
 ///
 /// @param packageId 
 /// @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored (optional)
-/// @param packageUpdateParamsV1  (optional)
+/// @param packageUpdateParams  (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:4XX message:"User submission error"
 ///
-/// @return NSObject*
+/// @return TGPackage*
 -(NSURLSessionTask*) updatePackageWithPackageId: (NSString*) packageId
     idempotencyKey: (NSString*) idempotencyKey
-    packageUpdateParamsV1: (TGPackageUpdateParamsV1*) packageUpdateParamsV1
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    packageUpdateParams: (TGPackageUpdateParams*) packageUpdateParams
+    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler;
 
 
 

@@ -14,6 +14,12 @@
 */
 
 
+#import "TGInvite.h"
+#import "TGPagination.h"
+@protocol TGInvite;
+@class TGInvite;
+@protocol TGPagination;
+@class TGPagination;
 
 
 
@@ -23,8 +29,8 @@
 @interface TGPaginatedInvitesList : TGObject
 
 
-@property(nonatomic) NSArray<NSObject*>* invites;
+@property(nonatomic) NSArray<TGInvite>* invites;
 
-@property(nonatomic) NSObject* pagination;
+@property(nonatomic) TGPagination* pagination;
 
 @end

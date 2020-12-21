@@ -14,9 +14,9 @@
 */
 
 
-#import "TGPermission.h"
-@protocol TGPermission;
-@class TGPermission;
+#import "TGPermissionGroup.h"
+@protocol TGPermissionGroup;
+@class TGPermissionGroup;
 
 
 
@@ -31,10 +31,12 @@
  */
 @property(nonatomic) NSNumber* mobileAccessEnabled;
 
-@property(nonatomic) NSArray<TGPermission>* permissionGroups;
-
+@property(nonatomic) NSArray<TGPermissionGroup>* permissionGroups;
+/*  
+ */
 @property(nonatomic) NSString* email;
-
+/*  [optional]
+ */
 @property(nonatomic) NSString* lastName;
 /* Determines if the registration portal has been enabled for this account [optional]
  */

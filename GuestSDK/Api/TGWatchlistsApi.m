@@ -1,6 +1,7 @@
 #import "TGWatchlistsApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
+#import "TGErrorsList.h"
 #import "TGPaginatedWatchlistList.h"
 #import "TGWatchlist.h"
 #import "TGWatchlistCreateParams.h"
@@ -54,7 +55,7 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
 ///
 /// Create Watchlist
 /// Create a new `Watchlist` record. Please note, every action taken against this endpoint is recorded in the audit log.
-///  @param watchlistCreateParams  
+///  @param watchlistCreateParams The new `Watchlist` to create 
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
@@ -204,11 +205,11 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
 ///
 ///  @param include A list of comma-separated related models to include (optional)
 ///
-///  @returns NSObject*
+///  @returns TGWatchlist*
 ///
 -(NSURLSessionTask*) getWatchlistWithWatchlistId: (NSString*) watchlistId
     include: (NSString*) include
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(TGWatchlist* output, NSError* error)) handler {
     // verify the required parameter 'watchlistId' is set
     if (watchlistId == nil) {
         NSParameterAssert(watchlistId);
@@ -263,10 +264,10 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"TGWatchlist*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((TGWatchlist*)data, error);
                                 }
                             }];
 }
@@ -357,16 +358,16 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
 /// Update an existing `Watchlist` record. Every operation against this endpoint is recorded in the audit log.
 ///  @param watchlistId  
 ///
-///  @param body The watchlist record attributes to update 
+///  @param watchlistCreateParams The watchlist record attributes to update 
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @returns NSObject*
+///  @returns TGWatchlist*
 ///
 -(NSURLSessionTask*) updateWatchlistWithWatchlistId: (NSString*) watchlistId
-    body: (NSObject*) body
+    watchlistCreateParams: (TGWatchlistCreateParams*) watchlistCreateParams
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(TGWatchlist* output, NSError* error)) handler {
     // verify the required parameter 'watchlistId' is set
     if (watchlistId == nil) {
         NSParameterAssert(watchlistId);
@@ -378,11 +379,11 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'body' is set
-    if (body == nil) {
-        NSParameterAssert(body);
+    // verify the required parameter 'watchlistCreateParams' is set
+    if (watchlistCreateParams == nil) {
+        NSParameterAssert(watchlistCreateParams);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"body"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"watchlistCreateParams"] };
             NSError* error = [NSError errorWithDomain:kTGWatchlistsApiErrorDomain code:kTGWatchlistsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -420,7 +421,7 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = body;
+    bodyParam = watchlistCreateParams;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -433,10 +434,10 @@ NSInteger kTGWatchlistsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"TGWatchlist*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((TGWatchlist*)data, error);
                                 }
                             }];
 }

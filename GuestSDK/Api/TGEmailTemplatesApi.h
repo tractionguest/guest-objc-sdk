@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "TGErrorsList.h"
 #import "TGPaginatedEmailTemplatesList.h"
 #import "TGApi.h"
 

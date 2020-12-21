@@ -14,8 +14,11 @@
 */
 
 
+#import "TGHost.h"
 #import "TGRegistration.h"
 #import "TGSigninWatchlist.h"
+@protocol TGHost;
+@class TGHost;
 @protocol TGRegistration;
 @class TGRegistration;
 @protocol TGSigninWatchlist;
@@ -35,7 +38,7 @@
 
 @property(nonatomic) TGSigninWatchlist* signinWatchlist;
 
-@property(nonatomic) NSArray<NSObject*>* hosts;
+@property(nonatomic) NSArray<TGHost>* hosts;
 
 @property(nonatomic) NSDate* signinTimestamp;
 

@@ -1,9 +1,10 @@
 #import "TGPackagesApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
+#import "TGErrorsList.h"
 #import "TGPackage.h"
-#import "TGPackageCreateParamsV1.h"
-#import "TGPackageUpdateParamsV1.h"
+#import "TGPackageCreateParams.h"
+#import "TGPackageUpdateParams.h"
 #import "TGPaginatedPackagesList.h"
 
 
@@ -55,11 +56,11 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
 ///
 /// Create package
 /// Creates a [Package] entity by extracting information about the recipient and carrier from the given image file.
-///  @param packageCreateParamsV1  (optional)
+///  @param packageCreateParams Parameters for creating a package (optional)
 ///
 ///  @returns TGPackage*
 ///
--(NSURLSessionTask*) createPackageWithPackageCreateParamsV1: (TGPackageCreateParamsV1*) packageCreateParamsV1
+-(NSURLSessionTask*) createPackageWithPackageCreateParams: (TGPackageCreateParams*) packageCreateParams
     completionHandler: (void (^)(TGPackage* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/packages"];
 
@@ -86,7 +87,7 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = packageCreateParamsV1;
+    bodyParam = packageCreateParams;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -188,11 +189,11 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
 ///
 ///  @param include A list of comma-separated related models to include  (optional)
 ///
-///  @returns NSObject*
+///  @returns TGPackage*
 ///
 -(NSURLSessionTask*) getPackageWithPackageId: (NSString*) packageId
     include: (NSString*) include
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler {
     // verify the required parameter 'packageId' is set
     if (packageId == nil) {
         NSParameterAssert(packageId);
@@ -247,10 +248,10 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"TGPackage*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((TGPackage*)data, error);
                                 }
                             }];
 }
@@ -349,14 +350,14 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @param packageUpdateParamsV1  (optional)
+///  @param packageUpdateParams  (optional)
 ///
-///  @returns NSObject*
+///  @returns TGPackage*
 ///
 -(NSURLSessionTask*) updatePackageWithPackageId: (NSString*) packageId
     idempotencyKey: (NSString*) idempotencyKey
-    packageUpdateParamsV1: (TGPackageUpdateParamsV1*) packageUpdateParamsV1
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler {
+    packageUpdateParams: (TGPackageUpdateParams*) packageUpdateParams
+    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler {
     // verify the required parameter 'packageId' is set
     if (packageId == nil) {
         NSParameterAssert(packageId);
@@ -399,7 +400,7 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = packageUpdateParamsV1;
+    bodyParam = packageUpdateParams;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -412,10 +413,10 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSObject*"
+                              responseType: @"TGPackage*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSObject*)data, error);
+                                    handler((TGPackage*)data, error);
                                 }
                             }];
 }

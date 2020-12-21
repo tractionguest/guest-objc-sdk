@@ -4,15 +4,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **NSNumber*** |  | 
-**registration** | **NSObject*** |  | [optional] 
+**registration** | [**TGRegistration***](TGRegistration.md) |  | [optional] 
 **mobileNumber** | **NSString*** | Phone number | [optional] 
 **emailTemplate** | [**TGEmailTemplate***](TGEmailTemplate.md) |  | [optional] 
 **inviteWatchlist** | [**TGInviteWatchlist***](TGInviteWatchlist.md) |  | [optional] 
 **notificationTriggers** | [**NSArray&lt;TGNotificationTrigger&gt;***](TGNotificationTrigger.md) | List of scheduled notifications for an invite | [optional] 
-**customFields** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
+**customFields** | [**NSArray&lt;TGCustomField&gt;***](TGCustomField.md) |  | [optional] 
 **watchlistColour** | **NSString*** |  | [optional] 
-**location** | **NSObject*** |  | [optional] 
-**hosts** | **NSArray&lt;NSObject*&gt;*** |  | [optional] 
+**location** | [**TGLocation***](TGLocation.md) |  | [optional] 
+**hosts** | [**NSArray&lt;TGHost&gt;***](TGHost.md) |  | [optional] 
 **startDate** | **NSDate*** |  | [optional] 
 **lastName** | **NSString*** |  | 
 **firstName** | **NSString*** |  | 

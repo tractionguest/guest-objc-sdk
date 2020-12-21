@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "TGErrorsList.h"
 #import "TGPaginatedWatchlistList.h"
 #import "TGWatchlist.h"
 #import "TGWatchlistCreateParams.h"
@@ -28,7 +29,7 @@ extern NSInteger kTGWatchlistsApiMissingParamErrorCode;
 /// Create Watchlist
 /// Create a new `Watchlist` record. Please note, every action taken against this endpoint is recorded in the audit log.
 ///
-/// @param watchlistCreateParams 
+/// @param watchlistCreateParams The new &#x60;Watchlist&#x60; to create
 /// @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored (optional)
 /// 
 ///  code:201 message:"The newly created `Watchlist`",
@@ -64,10 +65,10 @@ extern NSInteger kTGWatchlistsApiMissingParamErrorCode;
 ///  code:200 message:"Successful response - returns a single `Watchlist`.",
 ///  code:4XX message:""
 ///
-/// @return NSObject*
+/// @return TGWatchlist*
 -(NSURLSessionTask*) getWatchlistWithWatchlistId: (NSString*) watchlistId
     include: (NSString*) include
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(TGWatchlist* output, NSError* error)) handler;
 
 
 /// List all Watchlists
@@ -95,17 +96,17 @@ extern NSInteger kTGWatchlistsApiMissingParamErrorCode;
 /// Update an existing `Watchlist` record. Every operation against this endpoint is recorded in the audit log.
 ///
 /// @param watchlistId 
-/// @param body The watchlist record attributes to update
+/// @param watchlistCreateParams The watchlist record attributes to update
 /// @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored (optional)
 /// 
 ///  code:200 message:"The complete updated watchlist record",
 ///  code:4XX message:"Bad request"
 ///
-/// @return NSObject*
+/// @return TGWatchlist*
 -(NSURLSessionTask*) updateWatchlistWithWatchlistId: (NSString*) watchlistId
-    body: (NSObject*) body
+    watchlistCreateParams: (TGWatchlistCreateParams*) watchlistCreateParams
     idempotencyKey: (NSString*) idempotencyKey
-    completionHandler: (void (^)(NSObject* output, NSError* error)) handler;
+    completionHandler: (void (^)(TGWatchlist* output, NSError* error)) handler;
 
 
 
