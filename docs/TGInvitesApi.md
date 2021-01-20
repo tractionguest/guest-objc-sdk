@@ -4,6 +4,7 @@ All URIs are relative to *https://us.tractionguest.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**batchDeleteInvites**](TGInvitesApi.md#batchdeleteinvites) | **POST** /invites/batch_delete | Delete Multiple Invites
 [**createLocationInvite**](TGInvitesApi.md#createlocationinvite) | **POST** /locations/{location_id}/invites | Create an Invite
 [**createRegistrationInvite**](TGInvitesApi.md#createregistrationinvite) | **POST** /registrations/{registration_id}/invites | Create an Invite from a Registration
 [**deleteInvite**](TGInvitesApi.md#deleteinvite) | **DELETE** /invites/{invite_id} | Deletes an Invite
@@ -11,6 +12,58 @@ Method | HTTP request | Description
 [**getInvites**](TGInvitesApi.md#getinvites) | **GET** /invites | List all Invites
 [**updateInvite**](TGInvitesApi.md#updateinvite) | **PUT** /invites/{invite_id} | Update an Invite
 
+
+# **batchDeleteInvites**
+```objc
+-(NSURLSessionTask*) batchDeleteInvitesWithIdentifierList: (TGIdentifierList*) identifierList
+        completionHandler: (void (^)(TGBatchJob* output, NSError* error)) handler;
+```
+
+Delete Multiple Invites
+
+Queues up a \"delete\" background task for one or more `Invite` entities.
+
+### Example 
+```objc
+TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
+
+
+TGIdentifierList* identifierList = [[TGIdentifierList alloc] init]; //  (optional)
+
+TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
+
+// Delete Multiple Invites
+[apiInstance batchDeleteInvitesWithIdentifierList:identifierList
+          completionHandler: ^(TGBatchJob* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling TGInvitesApi->batchDeleteInvites: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifierList** | [**TGIdentifierList***](TGIdentifierList.md)|  | [optional] 
+
+### Return type
+
+[**TGBatchJob***](TGBatchJob.md)
+
+### Authorization
+
+[TractionGuestAuth](../README.md#TractionGuestAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createLocationInvite**
 ```objc

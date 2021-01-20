@@ -1,5 +1,8 @@
 #import <Foundation/Foundation.h>
-#import "TGObject.h"
+#import "TGBatchJob.h"
+#import "TGErrorsList.h"
+#import "TGIdentifierList.h"
+#import "TGApi.h"
 
 /**
 * Traction Guest API
@@ -14,23 +17,39 @@
 */
 
 
-#import "TGPackage.h"
-#import "TGPagination.h"
-@protocol TGPackage;
-@class TGPackage;
-@protocol TGPagination;
-@class TGPagination;
+
+@interface TGBatchesApi: NSObject <TGApi>
+
+extern NSString* kTGBatchesApiErrorDomain;
+extern NSInteger kTGBatchesApiMissingParamErrorCode;
+
+-(instancetype) initWithApiClient:(TGApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
+
+/// Delete Multiple Invites
+/// Queues up a \"delete\" background task for one or more `Invite` entities.
+///
+/// @param identifierList  (optional)
+/// 
+///  code:202 message:"Accepted",
+///  code:4XX message:"Unauthorized"
+///
+/// @return TGBatchJob*
+-(NSURLSessionTask*) batchDeleteInvitesWithIdentifierList: (TGIdentifierList*) identifierList
+    completionHandler: (void (^)(TGBatchJob* output, NSError* error)) handler;
 
 
+/// Get a BatchJob
+/// Retrieve a given `BatchJob` entity.
+///
+/// @param batchId 
+/// 
+///  code:200 message:"OK",
+///  code:4XX message:"Not Found"
+///
+/// @return TGBatchJob*
+-(NSURLSessionTask*) getBatchWithBatchId: (NSString*) batchId
+    completionHandler: (void (^)(TGBatchJob* output, NSError* error)) handler;
 
-@protocol TGPaginatedPackagesList
-@end
 
-@interface TGPaginatedPackagesList : TGObject
-
-
-@property(nonatomic) NSArray<TGPackage>* packages;
-
-@property(nonatomic) TGPagination* pagination;
 
 @end

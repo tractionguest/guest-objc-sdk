@@ -14,23 +14,15 @@
 */
 
 
-#import "TGPackage.h"
-#import "TGPagination.h"
-@protocol TGPackage;
-@class TGPackage;
-@protocol TGPagination;
-@class TGPagination;
 
 
 
-@protocol TGPaginatedPackagesList
+@protocol TGIdentifierList
 @end
 
-@interface TGPaginatedPackagesList : TGObject
+@interface TGIdentifierList : TGObject
 
 
-@property(nonatomic) NSArray<TGPackage>* packages;
-
-@property(nonatomic) TGPagination* pagination;
+@property(nonatomic) NSArray<NSString*>* ids;
 
 @end
