@@ -50,6 +50,7 @@ extern NSInteger kTGRegistrationsApiMissingParamErrorCode;
 /// @param locationIds A comma separated list of Location IDs (optional)
 /// @param createdBefore Restricts results to only those that were created before the provided date (optional)
 /// @param createdAfter Restricts results to only those that were created after the provided date (optional)
+/// @param needsConfirmation A confirmed &#x60;Registration&#x60; is one with an associated &#x60;Invite&#x60;. This filter returns those without an &#x60;Invite&#x60; when true, and those with an &#x60;Invite&#x60; when false. (optional)
 /// 
 ///  code:200 message:"OK",
 ///  code:400 message:"Bad Request",
@@ -61,6 +62,7 @@ extern NSInteger kTGRegistrationsApiMissingParamErrorCode;
     locationIds: (NSString*) locationIds
     createdBefore: (NSString*) createdBefore
     createdAfter: (NSString*) createdAfter
+    needsConfirmation: (NSNumber*) needsConfirmation
     completionHandler: (void (^)(TGPaginatedRegistrationsList* output, NSError* error)) handler;
 
 

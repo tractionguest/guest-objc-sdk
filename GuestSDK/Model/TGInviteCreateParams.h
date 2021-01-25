@@ -56,6 +56,4 @@
 
 @property(nonatomic) NSString* company;
 
-@property(nonatomic) NSString* groupVisitId;
-
 @end
