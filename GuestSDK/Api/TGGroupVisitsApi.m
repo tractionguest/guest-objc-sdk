@@ -1,23 +1,22 @@
-#import "TGPackagesApi.h"
+#import "TGGroupVisitsApi.h"
 #import "TGQueryParamCollection.h"
 #import "TGApiClient.h"
 #import "TGErrorsList.h"
-#import "TGPackage.h"
-#import "TGPackageCreateParams.h"
-#import "TGPackageUpdateParams.h"
-#import "TGPaginatedPackagesList.h"
+#import "TGGroupVisit.h"
+#import "TGGroupVisitCreateParams.h"
+#import "TGGroupVisitUpdateParams.h"
 
 
-@interface TGPackagesApi ()
+@interface TGGroupVisitsApi ()
 
 @property (nonatomic, strong, readwrite) NSMutableDictionary *mutableDefaultHeaders;
 
 @end
 
-@implementation TGPackagesApi
+@implementation TGGroupVisitsApi
 
-NSString* kTGPackagesApiErrorDomain = @"TGPackagesApiErrorDomain";
-NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
+NSString* kTGGroupVisitsApiErrorDomain = @"TGGroupVisitsApiErrorDomain";
+NSInteger kTGGroupVisitsApiMissingParamErrorCode = 234513;
 
 @synthesize apiClient = _apiClient;
 
@@ -54,21 +53,27 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
 #pragma mark - Api Methods
 
 ///
-/// Create package
-/// Creates a [Package] entity by extracting information about the recipient and carrier from the given image file.
-///  @param packageCreateParams Parameters for creating a package (optional)
+/// Create a new Group Visit (Appointment)
+/// Creates a `GroupVisit` (Appointment)
+///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @returns TGPackage*
+///  @param groupVisitCreateParams  (optional)
 ///
--(NSURLSessionTask*) createPackageWithPackageCreateParams: (TGPackageCreateParams*) packageCreateParams
-    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/packages"];
+///  @returns TGGroupVisit*
+///
+-(NSURLSessionTask*) createGroupVisitWithIdempotencyKey: (NSString*) idempotencyKey
+    groupVisitCreateParams: (TGGroupVisitCreateParams*) groupVisitCreateParams
+    completionHandler: (void (^)(TGGroupVisit* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/group_visits"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (idempotencyKey != nil) {
+        headerParams[@"Idempotency-Key"] = idempotencyKey;
+    }
     // HTTP header `Accept`
     NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
     if(acceptHeader.length > 0) {
@@ -87,7 +92,7 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = packageCreateParams;
+    bodyParam = groupVisitCreateParams;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -100,42 +105,42 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGPackage*"
+                              responseType: @"TGGroupVisit*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGPackage*)data, error);
+                                    handler((TGGroupVisit*)data, error);
                                 }
                             }];
 }
 
 ///
-/// 
-/// Delete a pacakge
-///  @param packageId  
+/// Delete a Group Visit (Appointment)
+/// Deletes a single instance of `GroupVisit` (Appointment).
+///  @param groupVisitId  
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
 ///  @returns void
 ///
--(NSURLSessionTask*) deletePackageWithPackageId: (NSString*) packageId
+-(NSURLSessionTask*) deleteGroupVisitWithGroupVisitId: (NSString*) groupVisitId
     idempotencyKey: (NSString*) idempotencyKey
     completionHandler: (void (^)(NSError* error)) handler {
-    // verify the required parameter 'packageId' is set
-    if (packageId == nil) {
-        NSParameterAssert(packageId);
+    // verify the required parameter 'groupVisitId' is set
+    if (groupVisitId == nil) {
+        NSParameterAssert(groupVisitId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"packageId"] };
-            NSError* error = [NSError errorWithDomain:kTGPackagesApiErrorDomain code:kTGPackagesApiMissingParamErrorCode userInfo:userInfo];
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"groupVisitId"] };
+            NSError* error = [NSError errorWithDomain:kTGGroupVisitsApiErrorDomain code:kTGGroupVisitsApiMissingParamErrorCode userInfo:userInfo];
             handler(error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/packages/{package_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/group_visits/{group_visit_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (packageId != nil) {
-        pathParams[@"package_id"] = packageId;
+    if (groupVisitId != nil) {
+        pathParams[@"group_visit_id"] = groupVisitId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -145,7 +150,7 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
         headerParams[@"Idempotency-Key"] = idempotencyKey;
     }
     // HTTP header `Accept`
-    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[]];
     if(acceptHeader.length > 0) {
         headerParams[@"Accept"] = acceptHeader;
     }
@@ -183,39 +188,33 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// Get Package
-/// Gets the details of a single instance of a Package
-///  @param packageId  
+/// Get a Group Visit (Appointment)
+/// Gets the details of a single instance of a `GroupVisit`.
+///  @param groupVisitId  
 ///
-///  @param include A list of comma-separated related models to include  (optional)
+///  @returns TGGroupVisit*
 ///
-///  @returns TGPackage*
-///
--(NSURLSessionTask*) getPackageWithPackageId: (NSString*) packageId
-    include: (NSString*) include
-    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler {
-    // verify the required parameter 'packageId' is set
-    if (packageId == nil) {
-        NSParameterAssert(packageId);
+-(NSURLSessionTask*) getGroupVisitWithGroupVisitId: (NSString*) groupVisitId
+    completionHandler: (void (^)(TGGroupVisit* output, NSError* error)) handler {
+    // verify the required parameter 'groupVisitId' is set
+    if (groupVisitId == nil) {
+        NSParameterAssert(groupVisitId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"packageId"] };
-            NSError* error = [NSError errorWithDomain:kTGPackagesApiErrorDomain code:kTGPackagesApiMissingParamErrorCode userInfo:userInfo];
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"groupVisitId"] };
+            NSError* error = [NSError errorWithDomain:kTGGroupVisitsApiErrorDomain code:kTGGroupVisitsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/packages/{package_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/group_visits/{group_visit_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (packageId != nil) {
-        pathParams[@"package_id"] = packageId;
+    if (groupVisitId != nil) {
+        pathParams[@"group_visit_id"] = groupVisitId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (include != nil) {
-        queryParams[@"include"] = include;
-    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`
@@ -248,60 +247,48 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGPackage*"
+                              responseType: @"TGGroupVisit*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGPackage*)data, error);
+                                    handler((TGGroupVisit*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Get packages
-/// Gets a list of [Package] entities.
-///  @param locationIds A comma separated list of Location ids for filtering. i.e. '1,2,3' Will return all packages from all locations if none are specified (optional)
+/// List all Group Visits (Appointments)
+/// Gets a list of all `GroupVisit` entities (Appointments).
+///  @param limit Limits the results to a specified number. Defaults to 50. (optional)
 ///
-///  @param limit Limits the results to a specified number, defaults to 50 (optional, default to @50)
+///  @param offset Offsets the results to a specified number. Defaults to 0. (optional)
 ///
-///  @param offset Offsets the results to a specified number, defaults to 0 (optional, default to @0)
+///  @param locationIds A comma-separated string of locations IDs, to only show group visits (appointments) from those locations. (optional)
 ///
-///  @param include A list of comma-separated related models to include. Possible values: 'recipient', 'location', 'image' (optional)
+///  @param sortWith A combination of attribute and direction, joined with an underscore, for sorting. Valid attributes are: `created_at`, `updated_at`, `name`, and `start_time`. Valid directions are `asc` and `desc`. E.g., `name_desc`, `start_time_asc`. (optional)
 ///
-///  @param pickedUp Filters packages by their \"picked_up\" state.. (optional)
+///  @returns TGErrorsList*
 ///
-///  @param query Searches for packages by recipient name (optional)
-///
-///  @returns TGPaginatedPackagesList*
-///
--(NSURLSessionTask*) getPackagesWithLocationIds: (NSString*) locationIds
-    limit: (NSNumber*) limit
-    offset: (NSNumber*) offset
-    include: (NSString*) include
-    pickedUp: (NSNumber*) pickedUp
-    query: (NSString*) query
-    completionHandler: (void (^)(TGPaginatedPackagesList* output, NSError* error)) handler {
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/packages"];
+-(NSURLSessionTask*) getGroupVisitsWithLimit: (NSString*) limit
+    offset: (NSString*) offset
+    locationIds: (NSString*) locationIds
+    sortWith: (NSString*) sortWith
+    completionHandler: (void (^)(TGErrorsList* output, NSError* error)) handler {
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/group_visits"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (locationIds != nil) {
-        queryParams[@"location_ids"] = locationIds;
-    }
     if (limit != nil) {
         queryParams[@"limit"] = limit;
     }
     if (offset != nil) {
         queryParams[@"offset"] = offset;
     }
-    if (include != nil) {
-        queryParams[@"include"] = include;
+    if (locationIds != nil) {
+        queryParams[@"location_ids"] = locationIds;
     }
-    if (pickedUp != nil) {
-        queryParams[@"picked_up"] = [pickedUp isEqual:@(YES)] ? @"true" : @"false";
-    }
-    if (query != nil) {
-        queryParams[@"query"] = query;
+    if (sortWith != nil) {
+        queryParams[@"sort_with"] = sortWith;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
@@ -335,45 +322,45 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGPaginatedPackagesList*"
+                              responseType: @"TGErrorsList*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGPaginatedPackagesList*)data, error);
+                                    handler((TGErrorsList*)data, error);
                                 }
                             }];
 }
 
 ///
-/// Update Package
-/// Update/Edit information about a Package.  picked_up - changes the package_state to picked up and assigns non null value to picked_up_at  recipient_id - update the package's intended recipient. Changes package_state to 'recipient_matched' if a match hasn't been found and notifies host about their package via email. A previous recipient will stop getting notifications  carrier_name - change/update the package's carrier/courier information 
-///  @param packageId  
+/// Update a Group Visit (Appointment)
+/// Updates an existing `GroupVisit` (Appointment).
+///  @param groupVisitId  
 ///
 ///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 ///
-///  @param packageUpdateParams  (optional)
+///  @param groupVisitUpdateParams  (optional)
 ///
-///  @returns TGPackage*
+///  @returns TGGroupVisit*
 ///
--(NSURLSessionTask*) updatePackageWithPackageId: (NSString*) packageId
+-(NSURLSessionTask*) updateGroupVisitWithGroupVisitId: (NSString*) groupVisitId
     idempotencyKey: (NSString*) idempotencyKey
-    packageUpdateParams: (TGPackageUpdateParams*) packageUpdateParams
-    completionHandler: (void (^)(TGPackage* output, NSError* error)) handler {
-    // verify the required parameter 'packageId' is set
-    if (packageId == nil) {
-        NSParameterAssert(packageId);
+    groupVisitUpdateParams: (TGGroupVisitUpdateParams*) groupVisitUpdateParams
+    completionHandler: (void (^)(TGGroupVisit* output, NSError* error)) handler {
+    // verify the required parameter 'groupVisitId' is set
+    if (groupVisitId == nil) {
+        NSParameterAssert(groupVisitId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"packageId"] };
-            NSError* error = [NSError errorWithDomain:kTGPackagesApiErrorDomain code:kTGPackagesApiMissingParamErrorCode userInfo:userInfo];
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"groupVisitId"] };
+            NSError* error = [NSError errorWithDomain:kTGGroupVisitsApiErrorDomain code:kTGGroupVisitsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/packages/{package_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/group_visits/{group_visit_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (packageId != nil) {
-        pathParams[@"package_id"] = packageId;
+    if (groupVisitId != nil) {
+        pathParams[@"group_visit_id"] = groupVisitId;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
@@ -400,7 +387,7 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = packageUpdateParams;
+    bodyParam = groupVisitUpdateParams;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -413,10 +400,10 @@ NSInteger kTGPackagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGPackage*"
+                              responseType: @"TGGroupVisit*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGPackage*)data, error);
+                                    handler((TGGroupVisit*)data, error);
                                 }
                             }];
 }

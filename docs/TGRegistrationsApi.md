@@ -71,6 +71,7 @@ Name | Type | Description  | Notes
     locationIds: (NSString*) locationIds
     createdBefore: (NSString*) createdBefore
     createdAfter: (NSString*) createdAfter
+    needsConfirmation: (NSNumber*) needsConfirmation
         completionHandler: (void (^)(TGPaginatedRegistrationsList* output, NSError* error)) handler;
 ```
 
@@ -88,6 +89,7 @@ NSNumber* offset = @56; // Offsets the results to a specified number, defaults t
 NSString* locationIds = @"locationIds_example"; // A comma separated list of Location IDs (optional)
 NSString* createdBefore = @"createdBefore_example"; // Restricts results to only those that were created before the provided date (optional)
 NSString* createdAfter = @"createdAfter_example"; // Restricts results to only those that were created after the provided date (optional)
+NSNumber* needsConfirmation = @56; // A confirmed `Registration` is one with an associated `Invite`. This filter returns those without an `Invite` when true, and those with an `Invite` when false. (optional)
 
 TGRegistrationsApi*apiInstance = [[TGRegistrationsApi alloc] init];
 
@@ -97,6 +99,7 @@ TGRegistrationsApi*apiInstance = [[TGRegistrationsApi alloc] init];
               locationIds:locationIds
               createdBefore:createdBefore
               createdAfter:createdAfter
+              needsConfirmation:needsConfirmation
           completionHandler: ^(TGPaginatedRegistrationsList* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -116,6 +119,7 @@ Name | Type | Description  | Notes
  **locationIds** | **NSString***| A comma separated list of Location IDs | [optional] 
  **createdBefore** | **NSString***| Restricts results to only those that were created before the provided date | [optional] 
  **createdAfter** | **NSString***| Restricts results to only those that were created after the provided date | [optional] 
+ **needsConfirmation** | **NSNumber***| A confirmed &#x60;Registration&#x60; is one with an associated &#x60;Invite&#x60;. This filter returns those without an &#x60;Invite&#x60; when true, and those with an &#x60;Invite&#x60; when false. | [optional] 
 
 ### Return type
 

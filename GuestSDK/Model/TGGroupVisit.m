@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"location": @"location", @"hosts": @"hosts", @"name": @"name", @"startTime": @"start_time", @"endTime": @"end_time", @"createdAt": @"created_at", @"updatedAt": @"updated_at" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"location": @"location", @"hosts": @"hosts", @"name": @"name", @"startTime": @"start_time", @"endTime": @"end_time", @"createdAt": @"created_at", @"updatedAt": @"updated_at", @"registrationLimit": @"registration_limit", @"registrationUrl": @"registration_url", @"invitesCount": @"invites_count", @"unconfirmedRegistrationsCount": @"unconfirmed_registrations_count", @"manualRegistrationApproval": @"manual_registration_approval", @"publicRegistrationEnabled": @"public_registration_enabled" }];
 }
 
 /**
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"_id", @"location", @"hosts", @"name", @"startTime", @"endTime", @"createdAt", @"updatedAt"];
+  NSArray *optionalProperties = @[@"_id", @"location", @"hosts", @"name", @"startTime", @"endTime", @"createdAt", @"updatedAt", @"registrationLimit", @"registrationUrl", @"invitesCount", @"unconfirmedRegistrationsCount", @"manualRegistrationApproval", @"publicRegistrationEnabled"];
   return [optionalProperties containsObject:propertyName];
 }
 

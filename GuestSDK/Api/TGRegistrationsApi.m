@@ -138,6 +138,8 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
 ///
 ///  @param createdAfter Restricts results to only those that were created after the provided date (optional)
 ///
+///  @param needsConfirmation A confirmed `Registration` is one with an associated `Invite`. This filter returns those without an `Invite` when true, and those with an `Invite` when false. (optional)
+///
 ///  @returns TGPaginatedRegistrationsList*
 ///
 -(NSURLSessionTask*) getRegistrationsWithLimit: (NSNumber*) limit
@@ -145,6 +147,7 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
     locationIds: (NSString*) locationIds
     createdBefore: (NSString*) createdBefore
     createdAfter: (NSString*) createdAfter
+    needsConfirmation: (NSNumber*) needsConfirmation
     completionHandler: (void (^)(TGPaginatedRegistrationsList* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/registrations"];
 
@@ -165,6 +168,9 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
     }
     if (createdAfter != nil) {
         queryParams[@"created_after"] = createdAfter;
+    }
+    if (needsConfirmation != nil) {
+        queryParams[@"needs_confirmation"] = [needsConfirmation isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

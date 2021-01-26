@@ -1,22 +1,18 @@
-# TGGroupVisit
+# TGGroupVisitUpdateParams
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_id** | **NSNumber*** |  | [optional] 
-**location** | [**TGLocation***](TGLocation.md) |  | [optional] 
-**hosts** | [**NSArray&lt;TGHost&gt;***](TGHost.md) |  | [optional] 
 **name** | **NSString*** |  | [optional] 
 **startTime** | **NSString*** |  | [optional] 
 **endTime** | **NSString*** |  | [optional] 
-**createdAt** | **NSString*** |  | [optional] 
-**updatedAt** | **NSString*** |  | [optional] 
+**locationId** | **NSNumber*** |  | [optional] 
 **registrationLimit** | **NSNumber*** |  | [optional] 
-**registrationUrl** | **NSString*** |  | [optional] 
-**invitesCount** | **NSNumber*** |  | [optional] 
-**unconfirmedRegistrationsCount** | **NSNumber*** |  | [optional] 
 **manualRegistrationApproval** | **NSNumber*** |  | [optional] 
 **publicRegistrationEnabled** | **NSNumber*** |  | [optional] 
+**hostIds** | **NSArray&lt;NSNumber*&gt;*** |  | [optional] 
+**inviteIds** | **NSArray&lt;NSNumber*&gt;*** |  | [optional] 
+**refreshRegistrationUrl** | **NSNumber*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

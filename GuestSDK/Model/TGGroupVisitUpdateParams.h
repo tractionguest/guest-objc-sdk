@@ -17,16 +17,30 @@
 
 
 
-@protocol TGPermissionGroup
+@protocol TGGroupVisitUpdateParams
 @end
 
-@interface TGPermissionGroup : TGObject
+@interface TGGroupVisitUpdateParams : TGObject
 
 
 @property(nonatomic) NSString* name;
 
-@property(nonatomic) NSString* visibility;
+@property(nonatomic) NSString* startTime;
 
-@property(nonatomic) NSArray<NSString*>* permissions;
+@property(nonatomic) NSString* endTime;
+
+@property(nonatomic) NSNumber* locationId;
+
+@property(nonatomic) NSNumber* registrationLimit;
+
+@property(nonatomic) NSNumber* manualRegistrationApproval;
+
+@property(nonatomic) NSNumber* publicRegistrationEnabled;
+
+@property(nonatomic) NSArray<NSNumber*>* hostIds;
+
+@property(nonatomic) NSArray<NSNumber*>* inviteIds;
+
+@property(nonatomic) NSNumber* refreshRegistrationUrl;
 
 @end
