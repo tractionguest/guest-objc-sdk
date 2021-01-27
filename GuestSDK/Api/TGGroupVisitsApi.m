@@ -5,6 +5,7 @@
 #import "TGGroupVisit.h"
 #import "TGGroupVisitCreateParams.h"
 #import "TGGroupVisitUpdateParams.h"
+#import "TGPaginatedGroupVisitsList.h"
 
 
 @interface TGGroupVisitsApi ()
@@ -266,13 +267,13 @@ NSInteger kTGGroupVisitsApiMissingParamErrorCode = 234513;
 ///
 ///  @param sortWith A combination of attribute and direction, joined with an underscore, for sorting. Valid attributes are: `created_at`, `updated_at`, `name`, and `start_time`. Valid directions are `asc` and `desc`. E.g., `name_desc`, `start_time_asc`. (optional)
 ///
-///  @returns TGErrorsList*
+///  @returns TGPaginatedGroupVisitsList*
 ///
 -(NSURLSessionTask*) getGroupVisitsWithLimit: (NSString*) limit
     offset: (NSString*) offset
     locationIds: (NSString*) locationIds
     sortWith: (NSString*) sortWith
-    completionHandler: (void (^)(TGErrorsList* output, NSError* error)) handler {
+    completionHandler: (void (^)(TGPaginatedGroupVisitsList* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/group_visits"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -322,10 +323,10 @@ NSInteger kTGGroupVisitsApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"TGErrorsList*"
+                              responseType: @"TGPaginatedGroupVisitsList*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((TGErrorsList*)data, error);
+                                    handler((TGPaginatedGroupVisitsList*)data, error);
                                 }
                             }];
 }

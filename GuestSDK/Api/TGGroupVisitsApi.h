@@ -3,6 +3,7 @@
 #import "TGGroupVisit.h"
 #import "TGGroupVisitCreateParams.h"
 #import "TGGroupVisitUpdateParams.h"
+#import "TGPaginatedGroupVisitsList.h"
 #import "TGApi.h"
 
 /**
@@ -50,7 +51,7 @@ extern NSInteger kTGGroupVisitsApiMissingParamErrorCode;
 /// @param groupVisitId 
 /// @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored (optional)
 /// 
-///  code:200 message:"The `GroupVisit` has been deleted",
+///  code:204 message:"The `GroupVisit` has been deleted",
 ///  code:400 message:"There was an error in trying to delete the `GroupVisit`"
 ///
 /// @return void
@@ -88,12 +89,12 @@ extern NSInteger kTGGroupVisitsApiMissingParamErrorCode;
 ///  code:401 message:"You do not have permission to view this",
 ///  code:403 message:"You do not have permission for this action"
 ///
-/// @return TGErrorsList*
+/// @return TGPaginatedGroupVisitsList*
 -(NSURLSessionTask*) getGroupVisitsWithLimit: (NSString*) limit
     offset: (NSString*) offset
     locationIds: (NSString*) locationIds
     sortWith: (NSString*) sortWith
-    completionHandler: (void (^)(TGErrorsList* output, NSError* error)) handler;
+    completionHandler: (void (^)(TGPaginatedGroupVisitsList* output, NSError* error)) handler;
 
 
 /// Update a Group Visit (Appointment)

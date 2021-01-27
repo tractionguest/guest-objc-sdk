@@ -93,6 +93,7 @@ Import the following:
 #import <GuestSDK/TGPackageUpdateParams.h>
 #import <GuestSDK/TGPaginatedAuditLogsList.h>
 #import <GuestSDK/TGPaginatedEmailTemplatesList.h>
+#import <GuestSDK/TGPaginatedGroupVisitsList.h>
 #import <GuestSDK/TGPaginatedHostsList.h>
 #import <GuestSDK/TGPaginatedInvitesList.h>
 #import <GuestSDK/TGPaginatedLocationsList.h>
@@ -252,6 +253,7 @@ Class | Method | HTTP request | Description
  - [TGPackageUpdateParams](docs/TGPackageUpdateParams.md)
  - [TGPaginatedAuditLogsList](docs/TGPaginatedAuditLogsList.md)
  - [TGPaginatedEmailTemplatesList](docs/TGPaginatedEmailTemplatesList.md)
+ - [TGPaginatedGroupVisitsList](docs/TGPaginatedGroupVisitsList.md)
  - [TGPaginatedHostsList](docs/TGPaginatedHostsList.md)
  - [TGPaginatedInvitesList](docs/TGPaginatedInvitesList.md)
  - [TGPaginatedLocationsList](docs/TGPaginatedLocationsList.md)

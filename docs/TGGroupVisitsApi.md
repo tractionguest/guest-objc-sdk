@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
     offset: (NSString*) offset
     locationIds: (NSString*) locationIds
     sortWith: (NSString*) sortWith
-        completionHandler: (void (^)(TGErrorsList* output, NSError* error)) handler;
+        completionHandler: (void (^)(TGPaginatedGroupVisitsList* output, NSError* error)) handler;
 ```
 
 List all Group Visits (Appointments)
@@ -202,7 +202,7 @@ TGGroupVisitsApi*apiInstance = [[TGGroupVisitsApi alloc] init];
               offset:offset
               locationIds:locationIds
               sortWith:sortWith
-          completionHandler: ^(TGErrorsList* output, NSError* error) {
+          completionHandler: ^(TGPaginatedGroupVisitsList* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TGErrorsList***](TGErrorsList.md)
+[**TGPaginatedGroupVisitsList***](TGPaginatedGroupVisitsList.md)
 
 ### Authorization
 
