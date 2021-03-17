@@ -11,12 +11,6 @@ Name | Type | Description | Notes
 **endTime** | **NSString*** |  | [optional] 
 **createdAt** | **NSString*** |  | [optional] 
 **updatedAt** | **NSString*** |  | [optional] 
-**registrationLimit** | **NSNumber*** |  | [optional] 
-**registrationUrl** | **NSString*** |  | [optional] 
-**invitesCount** | **NSNumber*** |  | [optional] 
-**unconfirmedRegistrationsCount** | **NSNumber*** |  | [optional] 
-**manualRegistrationApproval** | **NSNumber*** |  | [optional] 
-**publicRegistrationEnabled** | **NSNumber*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

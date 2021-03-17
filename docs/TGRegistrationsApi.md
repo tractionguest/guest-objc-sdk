@@ -1,12 +1,68 @@
 # TGRegistrationsApi
 
-All URIs are relative to *https://us.tractionguest.com/api/v3*
+All URIs are relative to *https://tractionguest.ca/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createRegistrationSignout**](TGRegistrationsApi.md#createregistrationsignout) | **POST** /registrations/{registration_id}/signouts | 
 [**getRegistration**](TGRegistrationsApi.md#getregistration) | **GET** /registrations/{registration_id} | Get a Registration
 [**getRegistrations**](TGRegistrationsApi.md#getregistrations) | **GET** /registrations | List all Registrations
 
+
+# **createRegistrationSignout**
+```objc
+-(NSURLSessionTask*) createRegistrationSignoutWithRegistrationId: (NSString*) registrationId
+    idempotencyKey: (NSString*) idempotencyKey
+        completionHandler: (void (^)(TGSigninDetail* output, NSError* error)) handler;
+```
+
+
+
+Signs out the last `Signin` on a `Registration`. Returns the `SigninDetail` that was signed out, if the sign out is successful.
+
+### Example 
+```objc
+TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
+
+
+NSString* registrationId = @"registrationId_example"; // 
+NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
+
+TGRegistrationsApi*apiInstance = [[TGRegistrationsApi alloc] init];
+
+[apiInstance createRegistrationSignoutWithRegistrationId:registrationId
+              idempotencyKey:idempotencyKey
+          completionHandler: ^(TGSigninDetail* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling TGRegistrationsApi->createRegistrationSignout: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **NSString***|  | 
+ **idempotencyKey** | **NSString***| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] 
+
+### Return type
+
+[**TGSigninDetail***](TGSigninDetail.md)
+
+### Authorization
+
+[TractionGuestAuth](../README.md#TractionGuestAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRegistration**
 ```objc
@@ -71,7 +127,6 @@ Name | Type | Description  | Notes
     locationIds: (NSString*) locationIds
     createdBefore: (NSString*) createdBefore
     createdAfter: (NSString*) createdAfter
-    needsConfirmation: (NSNumber*) needsConfirmation
         completionHandler: (void (^)(TGPaginatedRegistrationsList* output, NSError* error)) handler;
 ```
 
@@ -89,7 +144,6 @@ NSNumber* offset = @56; // Offsets the results to a specified number, defaults t
 NSString* locationIds = @"locationIds_example"; // A comma separated list of Location IDs (optional)
 NSString* createdBefore = @"createdBefore_example"; // Restricts results to only those that were created before the provided date (optional)
 NSString* createdAfter = @"createdAfter_example"; // Restricts results to only those that were created after the provided date (optional)
-NSNumber* needsConfirmation = @56; // A confirmed `Registration` is one with an associated `Invite`. This filter returns those without an `Invite` when true, and those with an `Invite` when false. (optional)
 
 TGRegistrationsApi*apiInstance = [[TGRegistrationsApi alloc] init];
 
@@ -99,7 +153,6 @@ TGRegistrationsApi*apiInstance = [[TGRegistrationsApi alloc] init];
               locationIds:locationIds
               createdBefore:createdBefore
               createdAfter:createdAfter
-              needsConfirmation:needsConfirmation
           completionHandler: ^(TGPaginatedRegistrationsList* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -119,7 +172,6 @@ Name | Type | Description  | Notes
  **locationIds** | **NSString***| A comma separated list of Location IDs | [optional] 
  **createdBefore** | **NSString***| Restricts results to only those that were created before the provided date | [optional] 
  **createdAfter** | **NSString***| Restricts results to only those that were created after the provided date | [optional] 
- **needsConfirmation** | **NSNumber***| A confirmed &#x60;Registration&#x60; is one with an associated &#x60;Invite&#x60;. This filter returns those without an &#x60;Invite&#x60; when true, and those with an &#x60;Invite&#x60; when false. | [optional] 
 
 ### Return type
 

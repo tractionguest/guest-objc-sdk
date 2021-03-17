@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **endDate** | **NSDate*** |  | [optional] 
 **email** | **NSString*** |  | [optional] 
 **company** | **NSString*** |  | [optional] 
-**groupVisitId** | **NSNumber*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

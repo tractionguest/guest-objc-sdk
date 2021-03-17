@@ -4,6 +4,7 @@
 #import "TGErrorsList.h"
 #import "TGPaginatedRegistrationsList.h"
 #import "TGRegistrationDetail.h"
+#import "TGSigninDetail.h"
 
 
 @interface TGRegistrationsApi ()
@@ -50,6 +51,80 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
 }
 
 #pragma mark - Api Methods
+
+///
+/// 
+/// Signs out the last `Signin` on a `Registration`. Returns the `SigninDetail` that was signed out, if the sign out is successful.
+///  @param registrationId  
+///
+///  @param idempotencyKey An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
+///
+///  @returns TGSigninDetail*
+///
+-(NSURLSessionTask*) createRegistrationSignoutWithRegistrationId: (NSString*) registrationId
+    idempotencyKey: (NSString*) idempotencyKey
+    completionHandler: (void (^)(TGSigninDetail* output, NSError* error)) handler {
+    // verify the required parameter 'registrationId' is set
+    if (registrationId == nil) {
+        NSParameterAssert(registrationId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"registrationId"] };
+            NSError* error = [NSError errorWithDomain:kTGRegistrationsApiErrorDomain code:kTGRegistrationsApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/registrations/{registration_id}/signouts"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (registrationId != nil) {
+        pathParams[@"registration_id"] = registrationId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    if (idempotencyKey != nil) {
+        headerParams[@"Idempotency-Key"] = idempotencyKey;
+    }
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"TractionGuestAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"POST"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"TGSigninDetail*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((TGSigninDetail*)data, error);
+                                }
+                            }];
+}
 
 ///
 /// Get a Registration
@@ -138,8 +213,6 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
 ///
 ///  @param createdAfter Restricts results to only those that were created after the provided date (optional)
 ///
-///  @param needsConfirmation A confirmed `Registration` is one with an associated `Invite`. This filter returns those without an `Invite` when true, and those with an `Invite` when false. (optional)
-///
 ///  @returns TGPaginatedRegistrationsList*
 ///
 -(NSURLSessionTask*) getRegistrationsWithLimit: (NSNumber*) limit
@@ -147,7 +220,6 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
     locationIds: (NSString*) locationIds
     createdBefore: (NSString*) createdBefore
     createdAfter: (NSString*) createdAfter
-    needsConfirmation: (NSNumber*) needsConfirmation
     completionHandler: (void (^)(TGPaginatedRegistrationsList* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/registrations"];
 
@@ -168,9 +240,6 @@ NSInteger kTGRegistrationsApiMissingParamErrorCode = 234513;
     }
     if (createdAfter != nil) {
         queryParams[@"created_after"] = createdAfter;
-    }
-    if (needsConfirmation != nil) {
-        queryParams[@"needs_confirmation"] = [needsConfirmation isEqual:@(YES)] ? @"true" : @"false";
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

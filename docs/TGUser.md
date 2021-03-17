@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **lastName** | **NSString*** |  | [optional] 
 **firstName** | **NSString*** | Determines if the registration portal has been enabled for this account | [optional] 
 **registrationPortalEnabled** | **NSNumber*** | Determines if the registration portal has been enabled for this account | 
-**accountUuid** | **NSString*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **NSString*** | Guest&#39;s name | [optional] 
 **createdAt** | **NSDate*** | Datetime when registration was created | 
 **signin** | [**TGSignin***](TGSignin.md) |  | [optional] 
+**status** | **NSString*** | An enum describing the state of the &#x60;Registration&#x60; which can have one of the following: not_started, started, completed, rejected, signed_in signed_out | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
