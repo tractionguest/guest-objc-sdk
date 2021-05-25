@@ -284,9 +284,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-
-## TractionGuestAuth
-
+ All endpoints do not require authorization.
 
 
 ## Author

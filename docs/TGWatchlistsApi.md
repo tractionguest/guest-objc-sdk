@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[TractionGuestAuth](../README.md#TractionGuestAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -111,7 +111,7 @@ void (empty response body)
 
 ### Authorization
 
-[TractionGuestAuth](../README.md#TractionGuestAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[TractionGuestAuth](../README.md#TractionGuestAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[TractionGuestAuth](../README.md#TractionGuestAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[TractionGuestAuth](../README.md#TractionGuestAuth)
+No authorization required
 
 ### HTTP request headers
 
