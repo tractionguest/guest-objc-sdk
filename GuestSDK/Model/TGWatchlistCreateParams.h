@@ -34,5 +34,8 @@
 @property(nonatomic) NSString* email;
 
 @property(nonatomic) NSString* colour;
+/* A base64 encoded image. base64_image should be strict encoded  [optional]
+ */
+@property(nonatomic) NSData* base64Image;
 
 @end
