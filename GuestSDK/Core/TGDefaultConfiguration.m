@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"https://us.tractionguest.com/api/v3";
+        _host = @"https://tractionguest.ca/api/v3";
         _username = @"";
         _password = @"";
         _accessToken= @"";
