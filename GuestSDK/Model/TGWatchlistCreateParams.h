@@ -38,4 +38,6 @@
  */
 @property(nonatomic) NSData* base64Image;
 
+@property(nonatomic) NSString* driverLicense;
+
 @end

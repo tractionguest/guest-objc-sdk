@@ -39,4 +39,6 @@
 
 @property(nonatomic) NSString* colour;
 
+@property(nonatomic) NSString* driverLicense;
+
 @end
