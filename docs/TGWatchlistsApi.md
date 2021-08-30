@@ -27,7 +27,7 @@ Create a new `Watchlist` record. Please note, every action taken against this en
 TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
-TGWatchlistCreateParams* watchlistCreateParams = {"colour":"GREEN","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"]}; // The new `Watchlist` to create
+TGWatchlistCreateParams* watchlistCreateParams = {"colour":"GREEN","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"],"base64_image":"base 64 encoded image","driver_license":"some text"}; // The new `Watchlist` to create
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
@@ -262,7 +262,7 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* watchlistId = @"watchlistId_example"; // 
-TGWatchlistCreateParams* watchlistCreateParams = {"colour":"YELLOW","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"]}; // The watchlist record attributes to update
+TGWatchlistCreateParams* watchlistCreateParams = {"colour":"YELLOW","email":"some text","first_name":"some text","last_name":"some text","notes":"some text","aliases":["some text","some text"],"base64_image":"base 64 encoded image","driver_license":"some text"}; // The watchlist record attributes to update
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGWatchlistsApi*apiInstance = [[TGWatchlistsApi alloc] init];
