@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **email** | **NSString*** |  | [optional] 
 **colour** | **NSString*** |  | [optional] 
 **base64Image** | **NSData*** | A base64 encoded image. base64_image should be strict encoded  | [optional] 
+**driverLicense** | **NSString*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
