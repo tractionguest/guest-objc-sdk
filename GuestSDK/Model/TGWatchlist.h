@@ -41,4 +41,8 @@
 
 @property(nonatomic) NSString* driverLicense;
 
+@property(nonatomic) NSDate* createdAt;
+
+@property(nonatomic) NSDate* updatedAt;
+
 @end
