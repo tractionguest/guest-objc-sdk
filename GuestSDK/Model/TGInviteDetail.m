@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"registration": @"registration", @"mobileNumber": @"mobile_number", @"emailTemplate": @"email_template", @"inviteWatchlist": @"invite_watchlist", @"notificationTriggers": @"notification_triggers", @"customFields": @"custom_fields", @"watchlistColour": @"watchlist_colour", @"location": @"location", @"hosts": @"hosts", @"startDate": @"start_date", @"lastName": @"last_name", @"firstName": @"first_name", @"endDate": @"end_date", @"email": @"email", @"createdAt": @"created_at", @"company": @"company", @"checkedIn": @"checked_in", @"groupVisit": @"group_visit" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"registration": @"registration", @"mobileNumber": @"mobile_number", @"emailTemplate": @"email_template", @"inviteWatchlist": @"invite_watchlist", @"notificationTriggers": @"notification_triggers", @"customFields": @"custom_fields", @"watchlistColour": @"watchlist_colour", @"location": @"location", @"hosts": @"hosts", @"startDate": @"start_date", @"startDateUtc": @"start_date_utc", @"lastName": @"last_name", @"firstName": @"first_name", @"endDate": @"end_date", @"endDateUtc": @"end_date_utc", @"email": @"email", @"createdAt": @"created_at", @"company": @"company", @"checkedIn": @"checked_in", @"groupVisit": @"group_visit" }];
 }
 
 /**
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"registration", @"mobileNumber", @"emailTemplate", @"inviteWatchlist", @"notificationTriggers", @"customFields", @"watchlistColour", @"location", @"hosts", @"startDate", @"endDate", @"createdAt", @"company", @"checkedIn", @"groupVisit"];
+  NSArray *optionalProperties = @[@"registration", @"mobileNumber", @"emailTemplate", @"inviteWatchlist", @"notificationTriggers", @"customFields", @"watchlistColour", @"location", @"hosts", @"startDate", @"startDateUtc", @"endDate", @"endDateUtc", @"createdAt", @"company", @"checkedIn", @"groupVisit"];
   return [optionalProperties containsObject:propertyName];
 }
 

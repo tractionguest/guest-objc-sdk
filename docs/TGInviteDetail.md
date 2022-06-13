@@ -13,10 +13,12 @@ Name | Type | Description | Notes
 **watchlistColour** | **NSString*** |  | [optional] 
 **location** | [**TGLocation***](TGLocation.md) |  | [optional] 
 **hosts** | [**NSArray&lt;TGHost&gt;***](TGHost.md) |  | [optional] 
-**startDate** | **NSDate*** |  | [optional] 
+**startDate** | **NSDate*** | Deprecated. Use &#x60;start_date_utc&#x60; instead. | [optional] 
+**startDateUtc** | **NSDate*** |  | [optional] 
 **lastName** | **NSString*** |  | 
 **firstName** | **NSString*** |  | 
-**endDate** | **NSDate*** |  | [optional] 
+**endDate** | **NSDate*** | Deprecated. Use &#x60;end_date_utc&#x60; instead. | [optional] 
+**endDateUtc** | **NSDate*** |  | [optional] 
 **email** | **NSString*** |  | 
 **createdAt** | **NSDate*** |  | [optional] 
 **company** | **NSString*** |  | [optional] 
