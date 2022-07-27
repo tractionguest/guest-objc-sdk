@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **email** | **NSString*** |  | [optional] 
 **colour** | **NSString*** |  | [optional] 
 **driverLicense** | **NSString*** |  | [optional] 
+**createdAt** | **NSDate*** |  | [optional] 
+**updatedAt** | **NSDate*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
