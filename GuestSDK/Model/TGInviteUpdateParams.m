@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"mobileNumber": @"mobile_number", @"userId": @"user_id", @"onPremise": @"on_premise", @"notificationTriggers": @"notification_triggers", @"firstName": @"first_name", @"emailTemplateId": @"email_template_id", @"customFields": @"custom_fields", @"hostIds": @"host_ids", @"title": @"title", @"startDate": @"start_date", @"lastName": @"last_name", @"endDate": @"end_date", @"email": @"email", @"company": @"company", @"groupVisitId": @"group_visit_id" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"mobileNumber": @"mobile_number", @"userId": @"user_id", @"onPremise": @"on_premise", @"notificationTriggers": @"notification_triggers", @"firstName": @"first_name", @"emailTemplateId": @"email_template_id", @"customFields": @"custom_fields", @"hostIds": @"host_ids", @"title": @"title", @"startDate": @"start_date", @"lastName": @"last_name", @"endDate": @"end_date", @"email": @"email", @"company": @"company", @"groupVisitId": @"group_visit_id", @"licensePlate": @"license_plate" }];
 }
 
 /**
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"mobileNumber", @"userId", @"onPremise", @"notificationTriggers", @"firstName", @"emailTemplateId", @"customFields", @"hostIds", @"title", @"startDate", @"lastName", @"endDate", @"email", @"company", @"groupVisitId"];
+  NSArray *optionalProperties = @[@"mobileNumber", @"userId", @"onPremise", @"notificationTriggers", @"firstName", @"emailTemplateId", @"customFields", @"hostIds", @"title", @"startDate", @"lastName", @"endDate", @"email", @"company", @"groupVisitId", @"licensePlate"];
   return [optionalProperties containsObject:propertyName];
 }
 

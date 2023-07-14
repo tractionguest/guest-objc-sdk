@@ -17,12 +17,22 @@
 
 
 
-@protocol TGImage
+@protocol TGInviteDetailInvitesParkingLot
 @end
 
-@interface TGImage : TGObject
+@interface TGInviteDetailInvitesParkingLot : TGObject
 
 
-@property(nonatomic) NSString* fullSizeUrl;
+@property(nonatomic) NSNumber* _id;
+
+@property(nonatomic) NSNumber* stallNumber;
+
+@property(nonatomic) NSString* stallType;
+
+@property(nonatomic) NSString* parkingLotName;
+
+@property(nonatomic) NSNumber* parkingLotId;
+
+@property(nonatomic) NSNumber* parkingStallId;
 
 @end

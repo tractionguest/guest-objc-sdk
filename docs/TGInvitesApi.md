@@ -83,7 +83,7 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* locationId = @"locationId_example"; // 
-TGInviteCreateParams* inviteCreateParams = {"company":"some text","email":"some text","end_date":"2020-07-17T01:59:59.999Z","last_name":"some text","start_date":"2020-07-17T01:59:59.999Z","title":"some text","watchlist_colour":"ORANGE","host_ids":[96,2],"custom_fields":[{"format":"string","field_name":"some text","field_value":"some text"},{"format":"string","field_name":"some text","field_value":"some text"}],"email_template_id":53,"mobile_number":"some text","first_name":"some text","notification_triggers":[{"offset_direction":"BEFORE","offset_unit":"days","offset_amount":34,"offset_origin":"START","email_template_id":63,"notification_groups":["some text","some text"]},{"offset_direction":"AFTER","offset_unit":"hours","offset_amount":12,"offset_origin":"END","email_template_id":2,"notification_groups":["some text","some text"]}]}; // 
+TGInviteCreateParams* inviteCreateParams = {"company":"some text","email":"some text","end_date":"2020-07-17T01:59:59.999Z","last_name":"some text","start_date":"2020-07-17T01:59:59.999Z","title":"some text","watchlist_colour":"ORANGE","host_ids":[96,2],"custom_fields":[{"format":"string","field_name":"some text","field_value":"some text"},{"format":"string","field_name":"some text","field_value":"some text"}],"email_template_id":53,"mobile_number":"some text","first_name":"some text","license_plate":"some text","notification_triggers":[{"offset_direction":"BEFORE","offset_unit":"days","offset_amount":34,"offset_origin":"START","email_template_id":63,"notification_groups":["some text","some text"]},{"offset_direction":"AFTER","offset_unit":"hours","offset_amount":12,"offset_origin":"END","email_template_id":2,"notification_groups":["some text","some text"]}],"parking_stall":{"stall_number":66,"parking_lot_id":321,"parking_stall_id":332}}; // 
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
@@ -251,7 +251,7 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* inviteId = @"inviteId_example"; // 
-NSString* include = @"include_example"; // A list of comma-separated related models to include (optional)
+NSString* include = @"include_example"; // A list of comma-separated related models to include i.e., 'assigned_stall' (optional)
 
 TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
 
@@ -273,7 +273,7 @@ TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inviteId** | **NSString***|  | 
- **include** | **NSString***| A list of comma-separated related models to include | [optional] 
+ **include** | **NSString***| A list of comma-separated related models to include i.e., &#39;assigned_stall&#39; | [optional] 
 
 ### Return type
 
@@ -324,7 +324,7 @@ NSString* locationIds = @"locationIds_example"; // A comma separated list of Loc
 NSString* sortBy = @"sortBy_example"; // Sorts by the field name and direction provided where the pattern is `FIELD_NAME_DIRECTION` (optional)
 NSDate* startsBefore = @"2013-10-20T19:20:30+01:00"; // Filters results to all those *before* the provided datetime (optional)
 NSDate* startsAfter = @"2013-10-20T19:20:30+01:00"; // Filters results to all those *after* the provided datetime (optional)
-NSString* include = @"include_example"; // A list of comma-separated related models to include (optional)
+NSString* include = @"include_example"; // A list of comma-separated related models to include i.e., 'assigned_stall' (optional)
 NSNumber* isApproved = @56; // True to return approved and auto approved invites, False to return pending and rejected invites (optional)
 NSDate* activeAfter = @"2013-10-20T19:20:30+01:00"; // Checks that an invite hasn't yet started, or has started and is still active after a specified time (optional)
 NSDate* activeBefore = @"2013-10-20T19:20:30+01:00"; // Checks that an invite hasn't ended before a specified time (optional)
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
  **sortBy** | **NSString***| Sorts by the field name and direction provided where the pattern is &#x60;FIELD_NAME_DIRECTION&#x60; | [optional] 
  **startsBefore** | **NSDate***| Filters results to all those *before* the provided datetime | [optional] 
  **startsAfter** | **NSDate***| Filters results to all those *after* the provided datetime | [optional] 
- **include** | **NSString***| A list of comma-separated related models to include | [optional] 
+ **include** | **NSString***| A list of comma-separated related models to include i.e., &#39;assigned_stall&#39; | [optional] 
  **isApproved** | **NSNumber***| True to return approved and auto approved invites, False to return pending and rejected invites | [optional] 
  **activeAfter** | **NSDate***| Checks that an invite hasn&#39;t yet started, or has started and is still active after a specified time | [optional] 
  **activeBefore** | **NSDate***| Checks that an invite hasn&#39;t ended before a specified time | [optional] 
@@ -404,7 +404,7 @@ TGDefaultConfiguration *apiConfig = [TGDefaultConfiguration sharedConfig];
 
 
 NSString* inviteId = @"inviteId_example"; // 
-TGInviteUpdateParams* inviteUpdateParams = {"checked_in":true,"on_premise":true,"sent_email":"some text","user_id":45,"device_configuration_id":14}; // Updated `Invite` information.
+TGInviteUpdateParams* inviteUpdateParams = {"checked_in":true,"on_premise":true,"sent_email":"some text","user_id":45,"device_configuration_id":14,"license_plate":"some text"}; // Updated `Invite` information.
 NSString* idempotencyKey = @"idempotencyKey_example"; // An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored (optional)
 
 TGInvitesApi*apiInstance = [[TGInvitesApi alloc] init];

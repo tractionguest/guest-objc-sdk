@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **company** | **NSString*** |  | [optional] 
 **checkedIn** | **NSNumber*** |  | [optional] 
 **groupVisit** | [**TGGroupVisit***](TGGroupVisit.md) |  | [optional] 
+**licensePlate** | **NSString*** |  | [optional] 
+**invitesParkingLot** | [**TGInviteDetailInvitesParkingLot***](TGInviteDetailInvitesParkingLot.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
