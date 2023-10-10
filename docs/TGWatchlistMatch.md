@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 **_id** | **NSString*** |  | [optional] 
 **altNames** | **NSArray&lt;NSString*&gt;*** |  | [optional] 
 **federalRegisterNotice** | **NSString*** |  | [optional] 
-**name** | **NSString*** |  | 
+**name** | **NSString*** |  | [optional] 
 **sourceInformationUrl** | **NSString*** |  | [optional] 
 **sourceListUrl** | **NSString*** |  | [optional] 
-**list** | **NSString*** |  | 
+**list** | **NSString*** |  | [optional] 
 **type** | **NSString*** |  | [optional] 
 **category** | **NSString*** |  | [optional] 
 **street1** | **NSString*** |  | [optional] 
@@ -63,6 +63,7 @@ Name | Type | Description | Notes
 **finscanCategory** | **NSString*** |  | [optional] 
 **wrapperStatus** | **NSString*** |  | [optional] 
 **sourceLists** | **NSString*** |  | [optional] 
+**error** | **NSString*** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
-#import "TGWatchlist.h"
+#import "TGInviteCreateParamsParkingStall.h"
 
-@implementation TGWatchlist
+@implementation TGInviteCreateParamsParkingStall
 
 - (instancetype)init {
   self = [super init];
@@ -17,7 +17,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"_id": @"id", @"aliases": @"aliases", @"photo": @"photo", @"notes": @"notes", @"lastName": @"last_name", @"firstName": @"first_name", @"email": @"email", @"colour": @"colour", @"driverLicense": @"driver_license", @"createdAt": @"created_at", @"updatedAt": @"updated_at" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"stallNumber": @"stall_number", @"parkingLotId": @"parking_lot_id", @"parkingStallId": @"parking_stall_id" }];
 }
 
 /**
@@ -27,7 +27,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"aliases", @"photo", @"notes", @"lastName", @"firstName", @"email", @"colour", @"driverLicense", @"createdAt", @"updatedAt"];
+  NSArray *optionalProperties = @[@"stallNumber", @"parkingLotId", @"parkingStallId"];
   return [optionalProperties containsObject:propertyName];
 }
 

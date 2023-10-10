@@ -352,7 +352,7 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
 /// Gets the details of a single instance of a `Invite`.
 ///  @param inviteId  
 ///
-///  @param include A list of comma-separated related models to include (optional)
+///  @param include A list of comma-separated related models to include i.e., 'assigned_stall' (optional)
 ///
 ///  @returns TGInviteDetail*
 ///
@@ -440,7 +440,7 @@ NSInteger kTGInvitesApiMissingParamErrorCode = 234513;
 ///
 ///  @param startsAfter Filters results to all those *after* the provided datetime (optional)
 ///
-///  @param include A list of comma-separated related models to include (optional)
+///  @param include A list of comma-separated related models to include i.e., 'assigned_stall' (optional)
 ///
 ///  @param isApproved True to return approved and auto approved invites, False to return pending and rejected invites (optional)
 ///
